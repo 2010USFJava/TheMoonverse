@@ -1,0 +1,14 @@
+#server.port = 9090
+server:
+  port: 9090
+
+spring:
+  datasource:
+    url: jdbc:postgresql://java2010usf.ccjzasyyhpja.us-east-2.rds.amazonaws.com:5432/postgres
+    username: kitten
+    password: pega4life
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
