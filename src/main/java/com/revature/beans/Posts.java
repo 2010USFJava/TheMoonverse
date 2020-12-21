@@ -1,16 +1,30 @@
 package com.revature.beans;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name="posts")
 public class Posts {
 	
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@Column(name="post_id")
 	private int postId; //serial
+	@Column(name="user_id")
 	private int userId;
+	@Column(name="count_likes")
 	private int countLikes;
+	@Column(name="post_text")
 	private String postText;
+	@Column(name="post_date")
 	private LocalDate postDate;
+	@Column(name="post_media_url")
 	private String postMediaUrl;
 	
 	public Posts() {

@@ -1,28 +1,59 @@
 package com.revature.beans;
 
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user")
 public class User {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Column (name="User_id")
 	private int userId; //serial
+	
+	@Column (name="email", nullable = false)
 	private String email;
+	
+	@Column (name="password", nullable = false)
 	private String password;
+	
+	@Column (name="first_name")
 	private String firstName;
+	
+	@Column (name="last_name")
 	private String lastName;
+	
+	@Column (name="number_posts")
 	private int numberPosts;
+	
+	@Column (name="is_admin")
 	private boolean isAdmin;
+	
+	@Column(name="birth_date")
+	private LocalDate birthDate;
 	
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
-	public User(int userId, String email, String password, String firstName, String lastName, int numberPosts) {
+			}
+	public User(int userId, String email, String password, String firstName, String lastName, int numberPosts,Boolean isAdmin, LocalDate birthDate) {
 		super();
+		
 		this.userId = userId;
 		this.email = email;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.numberPosts = numberPosts;
+		this.isAdmin = isAdmin;
+		this.birthDate = birthDate;
 	}
+	
 	public int getUserId() {
 		return userId;
 	}
@@ -58,11 +89,25 @@ public class User {
 	}
 	public void setNumberPosts(int numberPosts) {
 		this.numberPosts = numberPosts;
+			
+	}
+	
+	public LocalDate getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
+	}
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 	@Override
 	public String toString() {
 		return "user [userId=" + userId + ", email=" + email + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", numberPosts=" + numberPosts + "]";
+				+ ", lastName=" + lastName + ", numberPosts=" + numberPosts + "Is an administrator: " +isAdmin+ "]";
 	}
 	
 	

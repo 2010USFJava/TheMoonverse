@@ -2,16 +2,33 @@ package com.revature.beans;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+@Entity
+@Table(name= "profile")
 public class Profile {
-
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@Column(name="profile_id")
 	private int profileId; //serial
+	@Column(name="about_me")
 	private String aboutMe;
+	@Column(name="age")
 	private int age;
+	@Column(name="city")
 	private String city;
+	@Column(name="profession")
 	private String profession;
-	private LocalDate birthDate;
+	
+	@Column(name="favorite_planet")
 	private String favoritePlanet;
+	@Column(name="profile_picture")
 	private String profilePicture;
+	
 	public Profile() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -24,7 +41,7 @@ public class Profile {
 		this.age = age;
 		this.city = city;
 		this.profession = profession;
-		this.birthDate = birthDate;
+		
 		this.favoritePlanet = favoritePlanet;
 		this.profilePicture = profilePicture;
 	}
@@ -58,12 +75,7 @@ public class Profile {
 	public void setProfession(String profession) {
 		this.profession = profession;
 	}
-	public LocalDate getBirthDate() {
-		return birthDate;
-	}
-	public void setBirthDate(LocalDate birthDate) {
-		this.birthDate = birthDate;
-	}
+
 	public String getFavoritePlanet() {
 		return favoritePlanet;
 	}
@@ -79,7 +91,7 @@ public class Profile {
 	@Override
 	public String toString() {
 		return "Profile [profileId=" + profileId + ", aboutMe=" + aboutMe + ", age=" + age + ", city=" + city
-				+ ", profession=" + profession + ", birthDate=" + birthDate + ", favoritePlanet=" + favoritePlanet
+				+ ", profession=" + profession +  ", favoritePlanet=" + favoritePlanet
 				+ ", profilePicture=" + profilePicture + "]";
 	}
 	
