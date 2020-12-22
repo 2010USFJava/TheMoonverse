@@ -13,6 +13,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { PostsComponent } from './posts/posts.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { FeedComponent } from './feed/feed.component';
+
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+import { PostFormComponent } from './post-form/post-form.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,13 +31,19 @@ import { UpdateUserComponent } from './update-user/update-user.component';
     ProfileComponent,
     PostsComponent,
     CreateUserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    PostsComponent,
+    FeedComponent,
+    PostFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

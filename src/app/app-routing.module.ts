@@ -5,6 +5,8 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
 import { CreateUserComponent } from './create-user/create-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ProfileComponent } from './profile/profile.component';
+import {PostsComponent} from './posts/posts.component';
+import{FeedComponent} from './feed/feed.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'add', component: CreateUserComponent },
   { path: 'update/:id', component: UpdateEmployeeComponent },
   { path: 'details/:id', component: UserDetailsComponent },
+  { path: 'posts', component: PostsComponent},
+  { path: 'feed', component: FeedComponent}
 ];
 
 @NgModule({
