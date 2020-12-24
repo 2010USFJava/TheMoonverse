@@ -6,5 +6,4 @@ export class Posts {
     postText:string;
     postDate:string;
     postMediaUrl:string;
-
 }

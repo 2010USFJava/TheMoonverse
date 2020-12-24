@@ -1,7 +1,7 @@
 <h3>Global feed</h3>
 <router-outlet></router-outlet> <!--don't forget this..you'll regret it-->
 
-<div class="card w-80 text-center" *ngFor="let post of posts" style="margin:2%;"> <!--use reverse pipe shows newest post first-->
+<div id="cards" class="card w-80 text-center" *ngFor="let post of posts" style="margin:2%;"> <!--use reverse pipe shows newest post first-->
     <div class="card-header">
         <a href="#" class="card-link"> user {{post.userId}}</a>
         <a href="#" class="card-link"> post {{post.userId}}</a>
@@ -15,7 +15,7 @@
         </footer>
     </div>
     <div class="card-footer text-muted text-right">
-        <button type="button" data-toggle="button" 
+        <button type="button" data-toggle="button" id="like-button"
             class="btn btn-outline-primary btn-sm" autocomplete="off" 
                 style="margin: 2%">Like
         </button>{{post.countLikes}} likes

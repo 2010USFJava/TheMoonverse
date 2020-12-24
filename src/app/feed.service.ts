@@ -24,4 +24,8 @@ export class FeedService {
       return this.http.get<Posts[]>(this.feedUrl)
     } 
   
+    getPost(id:number): Observable<Posts>{
+      const url = `${this.feedUrl}/${id}`;
+      return this.http.get<Posts>(url);
+    }
 }

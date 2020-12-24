@@ -1,15 +1,25 @@
-<h2>Global Feed</h2>
-
+<h2>Post from </h2>
+<router-outlet></router-outlet>
 <!--might remake this to a single-->
 
-<div>
-    <ul class="gfeed">
-        <li *ngFor="let post of posts">
-          <a routerLink="/detail/{{hero.id}}">
-            <span class="badge">{{hero.id}}</span> {{hero.name}}
-          </a>
-          <button class="delete" title="delete hero"
-            (click)="delete(hero)">x</button>
-        </li>
-    </ul>
+<div id="cards" class="card w-80 text-center" style="margin:2%;"> <!--use reverse pipe shows newest post first-->
+  <div class="card-header">
+      <a href="#" class="card-link"> user {{post.userId}}</a>
+      <a href="#" class="card-link"> post {{post.userId}}</a>
+  </div>
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Poster</h5>
+    <p class="card-text">{{post.postText}}</p>
+    <footer class="blockquote-footer text-right"> user {{post.userId}} 
+        <cite title="Source Title"> on {{post.postDate}}</cite>
+      </footer>
+  </div>
+  <div class="card-footer text-muted text-right">
+      <button type="button" data-toggle="button" id="like-button"
+          class="btn btn-outline-primary btn-sm" autocomplete="off" 
+              style="margin: 2%">Like
+      </button>{{post.countLikes}} likes
+      <!-- add  like fuinction to like buttons-->
+  </div>
 </div>

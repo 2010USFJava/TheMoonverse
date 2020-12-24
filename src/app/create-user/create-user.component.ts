@@ -44,3 +44,4 @@ export class CreateUserComponent implements OnInit {
     this.router.navigate(['/user']);
   }
 }
+// method that converts date to string for object
