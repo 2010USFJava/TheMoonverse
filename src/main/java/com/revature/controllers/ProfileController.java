@@ -71,7 +71,7 @@ public class ProfileController {
 	   public Map<String, Boolean> updateProfile(@PathVariable(value="id")int ProfileId )
 		throws ResourceNotFoundException{
 			Profile profile = profileRepository.findById(ProfileId)
-					.orElseThrow(() -> new ResourceNotFoundException("Profile not found for this id::" + profileId));
+					.orElseThrow(() -> new ResourceNotFoundException("Profile not found for this id::" + ProfileId));
 			
 		
 		profileRepository.delete(profile);
