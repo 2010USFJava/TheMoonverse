@@ -40,8 +40,8 @@ public class ProfileController {
 	}
 	@ResponseStatus(HttpStatus.CREATED)
 	@GetMapping("/profile/{profileId}")
-	public Optional<Profile> getProfileById(@PathVariable(value = "id") Integer profileID)
-		{Optional<Profile> profile = profileRepository.findById(profileID);
+	public Optional<Profile> getProfileById(@PathVariable(value = "id") Integer profileId)
+		{Optional<Profile> profile = profileRepository.findById(profileId);
 		return profile;
 		}
 	
@@ -68,10 +68,10 @@ public class ProfileController {
 	}
 		
 		@DeleteMapping("/profile/{id}")
-	   public Map<String, Boolean> updateProfile(@PathVariable(value="id")int ProfileId )
+	   public Map<String, Boolean> updateProfile(@PathVariable(value="id")int profileId )
 		throws ResourceNotFoundException{
-			Profile profile = profileRepository.findById(ProfileId)
-					.orElseThrow(() -> new ResourceNotFoundException("Profile not found for this id::" + ProfileId));
+			Profile profile = profileRepository.findById(profileId)
+					.orElseThrow(() -> new ResourceNotFoundException("Profile not found for this id::" + profileId));
 			
 		
 		profileRepository.delete(profile);
