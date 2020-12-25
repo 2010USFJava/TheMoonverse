@@ -7,23 +7,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
-@Table(name="posts")
+@Table(name="posts", schema="public")
 public class Posts {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="post_id")
 	private int postId; //serial
-	@Column(name="user_id")
-	private int userId;
+	
+	@ManyToOne()
+    @JoinColumn(name="user_id", referencedColumnName="user_id", updatable = false, nullable = false)
+    private Users user;
+	
 	@Column(name="count_likes")
 	private int countLikes;
+	
 	@Column(name="post_text")
 	private String postText;
+	
 	@Column(name="post_date")
 	private LocalDate postDate;
+	
 	@Column(name="post_media_url")
 	private String postMediaUrl;
 	
@@ -31,10 +40,10 @@ public class Posts {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Posts(int postId, int userId, int countLikes, String postText, LocalDate postDate, String postMediaUrl) {
+	public Posts(int postId, Users user, int countLikes, String postText, LocalDate postDate, String postMediaUrl) {
 		super();
 		this.postId = postId;
-		this.userId = userId;
+		this.user = user;
 		this.countLikes = countLikes;
 		this.postText = postText;
 		this.postDate = postDate;
@@ -46,11 +55,12 @@ public class Posts {
 	public void setPostId(int postId) {
 		this.postId = postId;
 	}
-	public int getUserId() {
-		return userId;
+	public Users getUserId() {
+		return user;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+
+	public void setUserId(Users user) {
+		this.user = user;
 	}
 	public int getCountLikes() {
 		return countLikes;
@@ -78,7 +88,7 @@ public class Posts {
 	}
 	@Override
 	public String toString() {
-		return "Posts [postId=" + postId + ", userId=" + userId + ", countLikes=" + countLikes + ", postText="
+		return "Posts [postId=" + postId + ", userId=" + user + ", countLikes=" + countLikes + ", postText="
 				+ postText + ", postDate=" + postDate + ", postMediaUrl=" + postMediaUrl + "]";
 	}
 	

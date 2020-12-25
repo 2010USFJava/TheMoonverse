@@ -26,7 +26,7 @@ import com.revature.repos.PostsRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api/posts")
+@RequestMapping("/api/v3")
 public class PostsController {
 
 	@Autowired
@@ -48,7 +48,7 @@ public class PostsController {
 	}
 	
 	
-	@PostMapping("/posts")
+	@PostMapping("/addpost")
 	public Posts createPost(@Valid @RequestBody Posts post) {
 		return postsRepo.save(post);
 	}

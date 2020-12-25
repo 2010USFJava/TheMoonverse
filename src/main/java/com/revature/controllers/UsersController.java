@@ -1,5 +1,6 @@
 package com.revature.controllers;
 
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -17,46 +18,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.beans.User;
-import com.revature.repos.UserRepository;
-
 import com.revature.exception.ResourceNotFoundException;
-
+import com.revature.beans.Users;
+import com.revature.repos.UsersRepository;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api/user")
-public class UserController {
+@RequestMapping("/api/v1")
+public class UsersController {
 
 	@Autowired
-	private UserRepository userRepo;
+	private UsersRepository userRepo;
 	
 	@GetMapping("/users")
-	public List<User> getAllUsers() {
+	public List<Users> getAllUsers() {
 		
 		return userRepo.findAll();
 	}
 	
 	@ResponseStatus(HttpStatus.CREATED)
 	@GetMapping("/users/{user_id}")
-	public ResponseEntity<User> getPostById(@PathVariable(value = "user_id") int userId)
+	public ResponseEntity<Users> getUserById(@PathVariable(value = "user_id") int userId)
 			throws ResourceNotFoundException {
-		User user = userRepo.findById(userId)
-				.orElseThrow(() -> new ResourceNotFoundException("Post Not Found For This Id :: " + userId));
+		Users user = userRepo.findById(userId)
+				.orElseThrow(() -> new ResourceNotFoundException("User Not Found For This Id :: " + userId));
 		return ResponseEntity.ok().body(user);
 	}
 	
-	@PostMapping("/users")
-	public User createUser(@Valid @RequestBody User user) {
+	@PostMapping("/adduser")
+	public Users createUser(@Valid @RequestBody Users user) {
 		return userRepo.save(user);
 	}
 	
 	@PutMapping("/users/{user_id}")
-	public ResponseEntity<User> updatePost(@PathVariable(value = "user_id") int userId,
-			@Valid @RequestBody User userDetails) throws ResourceNotFoundException {
-		User user = userRepo.findById(userId)
-				.orElseThrow(() -> new ResourceNotFoundException("Post Not Found For This Id :: " + userId));
+	public ResponseEntity<Users> updateUser(@PathVariable(value = "user_id") int userId,
+			@Valid @RequestBody Users userDetails) throws ResourceNotFoundException {
+		Users user = userRepo.findById(userId)
+				.orElseThrow(() -> new ResourceNotFoundException("User Not Found For This Id :: " + userId));
 		
 		user.setEmail(userDetails.getEmail());
 		user.setPassword(userDetails.getPassword());
@@ -64,7 +63,7 @@ public class UserController {
 		user.setLastName(userDetails.getLastName());
 		user.setBirthDate(userDetails.getBirthDate());
 		
-		final User updatedUser = userRepo.save(user);
+		final Users updatedUser = userRepo.save(user);
 		return ResponseEntity.ok(updatedUser);
 	}
 }

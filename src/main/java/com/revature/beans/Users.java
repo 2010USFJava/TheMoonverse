@@ -1,20 +1,25 @@
 package com.revature.beans;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user")
-public class User {
+@Table(name="users", schema="public")
+public class Users {
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@Column (name="User_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column (name="user_id")
 	private int userId; //serial
 	
 	@Column (name="email", nullable = false)
@@ -31,17 +36,17 @@ public class User {
 	
 	@Column (name="number_posts")
 	private int numberPosts;
-	
-	@Column (name="is_admin")
-	private boolean isAdmin;
-	
+
 	@Column(name="birth_date")
 	private LocalDate birthDate;
 	
-	public User() {
+	@OneToMany( targetEntity = Posts.class, mappedBy = "users",fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+	private List<Posts> posts = new ArrayList<>();
+	
+	public Users() {
 		super();
 			}
-	public User(int userId, String email, String password, String firstName, String lastName, int numberPosts,Boolean isAdmin, LocalDate birthDate) {
+	public Users(int userId, String email, String password, String firstName, String lastName, int numberPosts,Boolean isAdmin, LocalDate birthDate) {
 		super();
 		
 		this.userId = userId;
@@ -50,7 +55,6 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.numberPosts = numberPosts;
-		this.isAdmin = isAdmin;
 		this.birthDate = birthDate;
 	}
 	
@@ -89,7 +93,6 @@ public class User {
 	}
 	public void setNumberPosts(int numberPosts) {
 		this.numberPosts = numberPosts;
-			
 	}
 	
 	public LocalDate getBirthDate() {
@@ -98,16 +101,11 @@ public class User {
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
-	public boolean isAdmin() {
-		return isAdmin;
-	}
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
-	}
+	
 	@Override
 	public String toString() {
 		return "user [userId=" + userId + ", email=" + email + ", password=" + password + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", numberPosts=" + numberPosts + "Is an administrator: " +isAdmin+ "]";
+				+ ", lastName=" + lastName + ", numberPosts=" + numberPosts + "]";
 	}
 	
 	

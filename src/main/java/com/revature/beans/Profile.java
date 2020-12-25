@@ -7,25 +7,37 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 @Entity
-@Table(name= "profile")
+@Table(name= "profile", schema="public")
 public class Profile {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="profile_id")
 	private int profileId; //serial
+	
+	@OneToOne()
+    @JoinColumn(name="user_id", referencedColumnName="user_id", updatable = false, nullable = false)
+    private Users user;
+	
 	@Column(name="about_me")
 	private String aboutMe;
+	
 	@Column(name="age")
 	private int age;
+	
 	@Column(name="city")
 	private String city;
+	
 	@Column(name="profession")
 	private String profession;
 	
 	@Column(name="favorite_planet")
 	private String favoritePlanet;
+	
 	@Column(name="profile_picture")
 	private String profilePicture;
 	
@@ -33,10 +45,11 @@ public class Profile {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Profile(int profileId, String aboutMe, int age, String city, String profession, LocalDate birthDate,
+	public Profile(int profileId, Users user, String aboutMe, int age, String city, String profession, LocalDate birthDate,
 			String favoritePlanet, String profilePicture) {
 		super();
 		this.profileId = profileId;
+		this.user = user;
 		this.aboutMe = aboutMe;
 		this.age = age;
 		this.city = city;
@@ -50,6 +63,13 @@ public class Profile {
 	}
 	public void setProfileId(int profileId) {
 		this.profileId = profileId;
+	}
+	public Users getUserId() {
+		return user;
+	}
+
+	public void setUserId(Users user) {
+		this.user = user;
 	}
 	public String getAboutMe() {
 		return aboutMe;
@@ -90,7 +110,7 @@ public class Profile {
 	}
 	@Override
 	public String toString() {
-		return "Profile [profileId=" + profileId + ", aboutMe=" + aboutMe + ", age=" + age + ", city=" + city
+		return "Profile [profileId=" + profileId + ", userId=" + user + ", aboutMe=" + aboutMe + ", age=" + age + ", city=" + city
 				+ ", profession=" + profession +  ", favoritePlanet=" + favoritePlanet
 				+ ", profilePicture=" + profilePicture + "]";
 	}
