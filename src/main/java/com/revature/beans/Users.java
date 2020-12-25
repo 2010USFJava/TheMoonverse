@@ -1,5 +1,6 @@
 package com.revature.beans;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="users", schema="public")
-public class Users {
+public class Users implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 904056302678698572L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (name="user_id")
@@ -40,7 +46,7 @@ public class Users {
 	@Column(name="birth_date")
 	private LocalDate birthDate;
 	
-	@OneToMany( targetEntity = Posts.class, mappedBy = "users",fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+	@OneToMany( targetEntity = Posts.class, mappedBy = "user", fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
 	private List<Posts> posts = new ArrayList<>();
 	
 	public Users() {

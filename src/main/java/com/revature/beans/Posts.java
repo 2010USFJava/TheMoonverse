@@ -1,5 +1,6 @@
 package com.revature.beans;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
@@ -13,8 +14,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="posts", schema="public")
-public class Posts {
+public class Posts implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7022284477521226987L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="post_id")
