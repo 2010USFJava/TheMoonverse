@@ -8,7 +8,7 @@ import { Observable, of } from 'rxjs';
 })
 export class FeedService {
 
-  private feedUrl= 'api/posts'; /*
+  private feedUrl= 'http://localhost:4200/api/v3'; /*
     Define the heroesUrl of the form :base/:collectionName with the address of the posts resource on the server. 
     Here base is the resource to which requests are made, and collectionName is the posts data object 
     in the in-memory-data-service.ts.*/

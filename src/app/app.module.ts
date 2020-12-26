@@ -10,11 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ProfileComponent } from './profile/profile.component';
-import { PostsComponent } from './posts/posts.component';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { FeedComponent } from './feed/feed.component';
-
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { PostFormComponent } from './post-form/post-form.component';
@@ -31,10 +29,8 @@ import { LogoutComponent } from './logout/logout.component';
     UpdateEmployeeComponent,
     UserDetailsComponent,
     ProfileComponent,
-    PostsComponent,
     CreateUserComponent,
     UpdateUserComponent,
-    PostsComponent,
     FeedComponent,
     PostFormComponent,
     LogoutComponent,
