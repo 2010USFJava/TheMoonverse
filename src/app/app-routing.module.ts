@@ -14,7 +14,6 @@ const routes: Routes = [
   { path: 'add', component: CreateUserComponent },
   { path: 'update/:id', component: UpdateEmployeeComponent },
   { path: 'details/:id', component: UserDetailsComponent },
-  { path: 'posts', component: PostsComponent},
   { path: 'feed', component: FeedComponent}
 ];
 

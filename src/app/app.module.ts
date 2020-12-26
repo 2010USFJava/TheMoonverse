@@ -18,6 +18,8 @@ import { FeedComponent } from './feed/feed.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { PostFormComponent } from './post-form/post-form.component';
+import { LogoutComponent } from './logout/logout.component';
+
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { PostFormComponent } from './post-form/post-form.component';
     UpdateUserComponent,
     PostsComponent,
     FeedComponent,
-    PostFormComponent
+    PostFormComponent,
+    LogoutComponent,
+   
   ],
   imports: [
     BrowserModule,

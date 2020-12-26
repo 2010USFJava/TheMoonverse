@@ -28,4 +28,9 @@ export class FeedService {
       const url = `${this.feedUrl}/${id}`;
       return this.http.get<Posts>(url);
     }
+
+    getFeedById(id:number): Observable<Posts[]>{
+      const url = `${this.feedUrl}/${id}`;
+      return this.http.get<Posts[]>(url);
+    }
 }
