@@ -19,8 +19,8 @@
         <a routerLink="employees" class="nav-link" routerLink="/login">Login</a>
     </li>   
   </ul>
-  <br>
-  <br>
+  
+
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -34,7 +34,34 @@
     
 
   
-   <!--(input)="search(searchBox.value)"
+   <!--
+<div class="list-container">
+    <dx-list 
+        #list
+        [dataSource]="products"
+        [height]="400"
+        [searchEnabled]="true"
+        searchExpr="Name"
+        searchMode="contains">
+            <div *dxTemplate="let data of 'item'">
+                <div>{{data.Name}}</div>
+            </div>
+    </dx-list>
+</div>
+<div class="options">
+    <div class="caption">Options</div>
+    <div class="option">
+        <span>Search mode</span>
+        <dx-select-box
+            #searchMode
+            [items]="['contains', 'startsWith']"
+            [(value)]="list.searchMode">
+        </dx-select-box>
+    </div>
+</div>     
+    
+    
+    (input)="search(searchBox.value)"
       <ul class="search-result">
       <li *ngFor="let user of users | async" >
         <a routerLink="/profile/{{tuser.firstName}}">
