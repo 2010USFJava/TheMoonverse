@@ -5,7 +5,6 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
 import { CreateUserComponent } from './create-user/create-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { ProfileComponent } from './profile/profile.component';
-import {PostsComponent} from './posts/posts.component';
 import{FeedComponent} from './feed/feed.component';
 
 const routes: Routes = [
