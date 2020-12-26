@@ -1,22 +1,24 @@
+<router-outlet></router-outlet>
+
 <h3 style ="text-align: center">Reset Password</h3>
 <div class="card w-80 text-center" style="margin:2%;">
-<div [hidden]="submitted" >
-  <form style="margin:2%;"  (ngSubmit)="onSubmit()">
+<div  >
+  <form style="margin:2%;" >
   
 
 
     <div class="form-group">
 
         <p>Please enter your birthdate or password to reset your password</p>
-        <label for="birthdate">Birth Date</label>
-        <input type="text" class="form-control" id="birthdate" required [(ngModel)]="user.birthdate" name="birthdate">
+        <label for="tempBirth">Birth Date</label>
+        <input type="text" class="form-control" id="tempBirth" required [(ngModel)]="tempBirth" name="tempBirth">
       </div>
 
       <p>Or enter your password</p>
 
     <div class="form-group">
-      <label for="password">Pasword</label>
-      <input type="text" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+      <label for="tempPass">Pasword</label>
+      <input type="text" class="form-control" id="tempPass" required [(ngModel)]="tempPass" name="tempPass">
     </div>
 
     <div class="form-group">
@@ -25,15 +27,12 @@
       </div>
 
   
-  <button type="submit" class="btn btn-success" routerLink="/reset">reset password</button>
+  <button type="submit" class="btn btn-success" routerLink="/login">reset password</button>
       <!-- add  like fuinction to like buttons-->
  
   </form>
 </div>
 </div>
 
-<div [hidden]="submitted">
-  <!--<h4>You now exist in The MoonVerse!!!</h4>
-  <button class="btn btn-success" (click)="newuser()">register</button> -->
-</div>
+
 

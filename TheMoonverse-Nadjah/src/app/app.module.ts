@@ -17,6 +17,7 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 import { ResetComponent } from './reset/reset.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

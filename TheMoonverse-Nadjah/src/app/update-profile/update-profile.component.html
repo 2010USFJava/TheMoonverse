@@ -5,7 +5,7 @@
 <div [hidden]="submitted" >
   <form style="margin:2%;"  (ngSubmit)="onSubmit()">
   
-
+<!--still needs option to put in profile picture-->
     <div class="form-group">
         <label for="name">First Name</label>
         <input type="text" class="form-control" id="firstName" required [(ngModel)]="user.firstName" name="firstName">
@@ -17,14 +17,31 @@
     </div>
 
     <div class="form-group">
-        <label for="aboutMe">About Me</label>
-        <input type="text" class="form-control" id="aboutMe" required [(ngModel)]="user.aboutMe" name="aboutMe">
-      </div>
+      <label for="age">Age</label>
+      <input type="text" class="form-control" id="age" required [(ngModel)]="profile.age" name="age">
+    </div>
 
     <div class="form-group">
-      <label for="name">Favorite Planet</label>
-      <input type="text" class="form-control" id="favoritePlanet" required [(ngModel)]="user.favoritePlanet" name="favoritePlanet">
+      <label for="city">City</label>
+      <input type="text" class="form-control" id="city" required [(ngModel)]="profile.city" name="city">
     </div>
+
+    <div class="form-group">
+      <label for="profession">Profession</label>
+      <input type="text" class="form-control" id="profession" required [(ngModel)]="profile.profession" name="profession">
+    </div>
+
+    <div class="form-group">
+      <label for="favoritePlanet">Favorite Planet</label>
+      <input type="text" class="form-control" id="favoritePlanet" required [(ngModel)]="profile.favoritePlanet" name="favoritePlanet">
+    </div>
+
+    <div class="form-group">
+        <label for="aboutMe">About Me</label>
+        <input type="text" class="form-control" id="aboutMe" required [(ngModel)]="profile.aboutMe" name="aboutMe">
+      </div>
+
+   
 
      <button type="submit" class="btn btn-success" routerLink="/update-profile">Update Profile</button>
       <!-- add  like fuinction to like buttons-->
