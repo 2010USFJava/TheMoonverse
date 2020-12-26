@@ -1,0 +1,29 @@
+<router-outlet></router-outlet>
+
+<!--<app-form></app-form>
+<app-login *ngIf="isOn"></app-login>
+
+<app-feed *ngIf="!isOn"></app-feed>
+<app-register *ngIf="!isOn"></app-register>
+(click)="isOn= false"
+(click)="isOn= true"-->
+
+
+
+<div class="card w-80 text-center" style="margin:5%;">
+<form style="margin: 2%">
+    <div class="form-group">
+      <label for="name">Username</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+    </div>
+
+   <div class="form-group">
+      <label for="name">Password </label>
+      <input type="text" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+    </div>
+    <button type="submit" class="btn btn-success" routerLink="/feed">Login</button>
+   <!-- <br>
+    <br>
+    <button type="submit" class="btn btn-success" routerLink="/register" >Register</button>-->
+  </form>
+</div>
