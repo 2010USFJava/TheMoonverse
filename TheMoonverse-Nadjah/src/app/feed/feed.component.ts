@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FeedService } from '../feed.service';
 import { Posts } from '../posts';
 
+
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
@@ -10,10 +11,11 @@ import { Posts } from '../posts';
 
 export class FeedComponent implements OnInit {
   posts:Posts[];
-  constructor(private feed: FeedService) {}
+  constructor(private feed: FeedService, ) {}
 
   ngOnInit(): void {
     this.getFeed();
+    
   }
   
 

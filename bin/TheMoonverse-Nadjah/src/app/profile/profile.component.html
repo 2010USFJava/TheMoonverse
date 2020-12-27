@@ -1,0 +1,37 @@
+<router-outlet></router-outlet>
+
+<!--*NGIUSER
+<div class="container-md">
+  
+
+<div class="card w-80 text-center"  style="margin:2%;"> use reverse pipe shows newest post first-->
+
+  <div id="cards" class="card w-80 text-center" style="margin:2%;"> <!--use reverse pipe shows newest post first-->
+    <div class="card-header">
+      <img class="card-img-top" size= 80% src="https://cdn.spacetelescope.org/archives/images/wallpaper2/heic2007a.jpg" alt="Card image cap">
+    
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{tuser.name}}</h5>
+    <p class="card-text">{{tuser.age}} {{tuser.proffesion}} {{tuser.city}}</p>
+    <p class="card-text">{{tuser.favoritePlanet}}</p>
+    <p class="card-text">{{tuser.aboutMe}}</p>
+   
+
+    <footer class="blockquote-footer text-right"> Stars:  
+        <cite title="Source Title"> {{tuser.countLikes}}</cite>
+      </footer>
+  </div>
+ 
+        <button type="submit" class="btn btn-success" routerLink="/update-profile">Update Profile</button>
+      <!-- add  like fuinction to like buttons-->
+  
+  <button type="submit" class="btn btn-success" routerLink="/posts">Post</button>
+      <!-- add  like fuinction to like buttons-->
+  
+ 
+
+  <div>
+    <app-feed></app-feed>
+  </div>
+  </div>

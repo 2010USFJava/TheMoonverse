@@ -13,6 +13,7 @@ import { ResetComponent } from './reset/reset.component';
 import { AuthGuard } from './auth-guard.service';
 
 
+
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'feed', component: FeedComponent, canActivate: [AuthGuard]},  
   { path: 'register', component: RegisterComponent},
   { path: 'update-profile', component: UpdateProfileComponent, canActivate: [AuthGuard]},
-  { path: 'reset', component: ResetComponent}
+  { path: 'reset', component: ResetComponent}, 
+ // { path: 'nav-bar', component: NavBarComponent}
 ];
 
 @NgModule({

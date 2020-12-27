@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 //import { threadId } from 'worker_threads';
 // import {FeedService } from '../feed.service';
 import { Posts } from '../posts';
+//import { NavBarService } from '../nav-bar.service';
 
 @Component({
   selector: 'app-posts',
@@ -22,11 +23,13 @@ export class PostsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private feed: FeedService,
-    private location: Location
+    private location: Location,
+    //public nav: NavBarService
   ){
     
   }
   ngOnInit(): void {
+    //this.nav.show();
     let currentDate = new Date()
   this.dateMessage = currentDate.toDateString();
 

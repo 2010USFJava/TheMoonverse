@@ -4,8 +4,7 @@ import { Profile } from '../profile';
 import { ProfileService } from '../profileService';
 import { User } from '../user';
 import { UserService } from '../user.service';
-
-
+//import { NavBarService } from '../nav-bar.service';
 @Component({
   selector: 'app-update-profile',
   templateUrl: './update-profile.component.html',
@@ -25,6 +24,7 @@ export class UpdateProfileComponent implements OnInit {
      private profileService: ProfileService, private router: Router) { }
 
   ngOnInit() {
+    //this.nav.show();
     this.user = new User();
     this.profile = new Profile();
 

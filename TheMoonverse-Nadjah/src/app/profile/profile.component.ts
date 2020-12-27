@@ -3,6 +3,7 @@ import {User} from '../user';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { Profile } from '../profile';
+//import { NavBarService } from '../nav-bar.service';
 
 @Component({
   selector: 'app-profile',
@@ -28,11 +29,12 @@ import { Profile } from '../profile';
   
   //  constructor(private route: ActivatedRoute,private router: Router,
 //private userService: UserService) { 
-        constructor() { 
+        constructor( ) { 
       
       }
 
       ngOnInit() {
+////this.nav.show();
         this.tuser =
         {
           name: 'Petra Maurer',
