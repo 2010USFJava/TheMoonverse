@@ -11,8 +11,11 @@ import { Router } from '@angular/router';
 
 export class RegisterComponent implements OnInit {
 
+  //@Input('user') user: User;
   user: User = new User();
   submitted = false;
+
+  isCollapsed : boolean = true;
 
   constructor(private userService: UserService,
     private router: Router) { }
@@ -24,6 +27,13 @@ export class RegisterComponent implements OnInit {
 newUser(): void {
   this.submitted = false;
   this.user = new User();
+
+
+
+  this.user.userId = 0;
+
+  this.isCollapsed = false;
+
 }
 
 save() {
