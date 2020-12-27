@@ -13,8 +13,8 @@ export class ResetComponent implements OnInit {
   user: User = new User();
   submitted = false;
   
-  tempBirth: Date;
-  tempEmail: string;
+  birth: Date;
+  email: string;
 
   constructor(private userService: UserService, 
     private router: Router) { }
