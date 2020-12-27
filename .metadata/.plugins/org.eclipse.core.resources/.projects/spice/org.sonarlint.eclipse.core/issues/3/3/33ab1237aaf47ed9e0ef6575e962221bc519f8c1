@@ -1,0 +1,11 @@
+
+Œ
+java:S1488,"\Immediately return this expression instead of assigning it to the temporary variable "user".(¥Š©ıÿÿÿÿH,RMINORZ
+CODE_SMELL
+Œ
+java:S14884"aImmediately return this expression instead of assigning it to the temporary variable "addedUser".(£í­“H-RMINORZ
+CODE_SMELL
+q
+java:S46842"@Replace this persistent entity with a simple POJO or DTO object.(æ•ıÌH.RCRITICALZVULNERABILITY
+h	java:S1063"9Replace this use of System.out or System.err by a logger.(Ò¡š‚şÿÿÿÿH/RMAJORZ
+CODE_SMELL

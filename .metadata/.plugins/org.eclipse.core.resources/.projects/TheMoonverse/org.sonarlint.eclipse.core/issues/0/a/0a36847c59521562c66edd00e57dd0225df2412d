@@ -1,0 +1,11 @@
+
+\
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒH·RMINORZ
+CODE_SMELL
+w
+java:S4684."@Replace this persistent entity with a simple POJO or DTO object.(§ª¼ˆúÿÿÿÿH¸RCRITICALZVULNERABILITY
+\
+java:S11350"2Complete the task associated to this TODO comment.(€ÎÆH¹RINFOZ
+CODE_SMELL
+w
+java:S46843"@Replace this persistent entity with a simple POJO or DTO object.(Òë¨ÜøÿÿÿÿHºRCRITICALZVULNERABILITY
