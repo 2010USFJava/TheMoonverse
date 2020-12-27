@@ -23,7 +23,7 @@ export class UserService {
   }
 
   registerUser(user: Object): Observable<Object> {
-    return this.http.post(`${this.baseUrl}`, user);
+    return this.http.post(`${this.baseUrl}/adduser`, user);
   }
 
   updateUser(id: number, value: any): Observable<Object> {
