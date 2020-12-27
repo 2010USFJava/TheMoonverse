@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.Profile;
+import com.revature.beans.Users;
 import com.revature.exception.ResourceNotFoundException;
 import com.revature.repos.ProfileRepository;
 
@@ -34,12 +36,20 @@ public class ProfileController {
 		
 	}
 	@ResponseStatus(HttpStatus.CREATED)
-	@GetMapping("/profile/{profile_id}")
-	public ResponseEntity<Profile> getProfileById(@PathVariable(value = "profile_id") int profileId)
+	@GetMapping("/profile/{id}")
+	public ResponseEntity<Profile> getProfileByUserId(@PathVariable(value = "id") int userId)
 			throws ResourceNotFoundException {
-		Profile profile = profileRepo.findById(profileId)
-				.orElseThrow(() -> new ResourceNotFoundException("Profile Not Found For This Id :: " + profileId));
-		return ResponseEntity.ok().body(profile);
+		List<Profile> profileList = getAllProfiles();
+		Profile profile = new Profile();
+		Iterator<Profile> iterator = profileList.iterator();
+		while(iterator.hasNext()) {
+			profile = iterator.next();
+			if(profile.getUser().getUserId() == userId) {
+			return ResponseEntity.ok().body(profile);
+			}
+		}
+		throw new ResourceNotFoundException("Profile Not Found For User with this Id :: " + userId);
+		
 	}
 	
 	@PostMapping("/addprofile")

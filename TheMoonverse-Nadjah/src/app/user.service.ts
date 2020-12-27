@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -13,7 +13,6 @@ export class UserService {
   
   constructor(private http: HttpClient, private _authService: AuthService) { }
   getLogin(email:string, password:string):Observable<any>{
-    console.log("in service login " + email + password)
     this._authService.login();
     return this.http.post(`${this.baseUrl}/verify`, {email, password}) ;
   }
@@ -36,5 +35,9 @@ export class UserService {
 
   getUsers(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
+  }
+
+  logout(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/logout`);
   }
 }

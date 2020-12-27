@@ -64,11 +64,11 @@ public class Profile {
 	public void setProfileId(int profileId) {
 		this.profileId = profileId;
 	}
-	public Users getUserId() {
+	public Users getUser() {
 		return user;
 	}
 
-	public void setUserId(Users user) {
+	public void setUser(Users user) {
 		this.user = user;
 	}
 	public String getAboutMe() {

@@ -1,29 +1,24 @@
 <router-outlet></router-outlet>
 
-<!--*NGIUSER
-<div class="container-md">
-  
-
-<div class="card w-80 text-center"  style="margin:2%;"> use reverse pipe shows newest post first-->
-
   <div id="cards" class="card w-80 text-center" style="margin:2%;"> <!--use reverse pipe shows newest post first-->
     <div class="card-header">
-      <img class="card-img-top" size= 80% src="https://cdn.spacetelescope.org/archives/images/wallpaper2/heic2007a.jpg" alt="Card image cap">
+      <img class="card-img-top" alt="profile-image" src={{profile.profilePicture}}>
     
   </div>
   <div class="card-body">
-    
+    <h3>{{firstName | titlecase}} {{lastName | titlecase}}</h3>
+    <br>
+    <p>About Me: {{profile.aboutMe}}</p>
+    <p>City: {{profile.city}}</p>
+    <p>Profession: {{profile.profession}}</p>
+    <p>Favorite Planet: {{profile.favoritePlanet}}</p>
 
-    <footer class="blockquote-footer text-right"> Stars:  
-        
-      </footer>
+    
   </div>
  
-        <button type="submit" class="btn btn-success" routerLink="/update-profile">Update Profile</button>
-      <!-- add  like fuinction to like buttons-->
-  
-  <button type="submit" class="btn btn-success" routerLink="/posts">Post</button>
-      <!-- add  like fuinction to like buttons-->
+  <button type="submit" class="btn btn-success" style="width:40%" style="margin:auto;" routerLink="/update-profile">Update Profile</button> 
+ <br>
+  <button type="submit" class="btn btn-success" style="width:20%;" style="margin:auto;" routerLink="/posts">Create a new post</button>
   
  
 
