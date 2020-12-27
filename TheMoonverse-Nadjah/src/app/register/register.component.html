@@ -31,21 +31,13 @@
         <input type="text" class="form-control" id="birthDate" required [(ngModel)]="user.birthDate" name="birthDate">
       </div>
 
-      <!DOCTYPE html>
-<html>
-<head>
-<title>Upload profile picture</title>
-</head>
+    <div class="form-group">
+     Upload Profile Picture here
+      <input type="file" name="name" multiple><br><br>
+    </div>  
 
-<body>
-<form>
-  Upload Profile Picture here
-<input type="file" name="name" multiple><br><br>
-After uploading file, click Submit.<br>
-<input type="submit" value="Submit">
-</form>
-</body>
-</html>
+
+
    
 
       <button class="btn btn-success" (click)="newUser()">register</button> 
