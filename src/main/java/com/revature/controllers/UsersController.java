@@ -1,7 +1,6 @@
 package com.revature.controllers;
 
 
-import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.List;
 
@@ -20,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.revature.beans.Users;
 import com.revature.exception.ResourceNotFoundException;
+import com.revature.beans.Users;
 import com.revature.repos.UsersRepository;
 
 
@@ -54,37 +53,6 @@ public class UsersController {
 			}
 		}
 		throw new ResourceNotFoundException("Login incorrect");
-	}
-	
-	@PostMapping("/verify/{user_id}")
-	public ResponseEntity<Users> verifyReset(@Valid @RequestBody Users updatedUser) throws ResourceNotFoundException {
-				
-		System.out.println(updatedUser.getEmail() + " " + updatedUser.getBirthDate());
-		
-		List<Users> userList = getAllUsers();
-		
-		Users user = new Users();
-		Iterator<Users> iterator = userList.iterator();
-		
-		while(iterator.hasNext()) {
-			System.out.println(userList.iterator());
-			user = iterator.next();			
-			
-			if(user.getEmail().equals(updatedUser.getEmail()) && user.getBirthDate().equals(updatedUser.getBirthDate())) 
-			{				
-				System.out.println(user.getUserId() + " " + user.getEmail() + " " + user.getBirthDate());
-				
-				user.setEmail(updatedUser.getEmail());
-				user.setPassword(updatedUser.getPassword());
-				user.setFirstName(updatedUser.getFirstName());
-				user.setLastName(updatedUser.getLastName());
-				user.setBirthDate(updatedUser.getBirthDate());
-				
-				final Users finalUser = userRepo.save(user);
-				return ResponseEntity.ok(finalUser);
-			}
-		}
-		throw new ResourceNotFoundException("Reset failed");
 	}
 	
 	@ResponseStatus(HttpStatus.CREATED)
