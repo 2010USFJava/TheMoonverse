@@ -12,7 +12,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   user: User = new User();
-  submitted = false;
 
   public registerInvalid: boolean;
 
@@ -20,30 +19,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
-// newUser(): void {
-//   this.submitted = false;
-//   this.user = new User();
-
-//   this.user.userId = 0;
-//   this.user.numberPosts = 0;
-
-//   this.isCollapsed = false;
-
-// }
-
-save() {
-  this.registerInvalid = false;
-  this.user.userId = 0;
-  this.user.numberPosts = 0;
-  this.userService.registerUser(this.user).subscribe(data => {
-    console.log(data)
-    this.user = new User();
-    this._router.navigate(['login']);
-  }, 
-  error => console.log(error));
-}
 
 onSubmit() {
   this.registerInvalid = false;

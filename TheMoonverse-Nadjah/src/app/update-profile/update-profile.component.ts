@@ -35,13 +35,13 @@ newProfile(): void{
 }
 
 save() {
-  this.userService.updateUser(Number(this.user.userId), this.user)
-  .subscribe(data => {
-    console.log(data)
-    this.user = new User();
-    this.gotoList();
-  }, 
-  error => console.log(error));
+  // this.userService.updateUser(Number(this.user.userId), this.user)
+  // .subscribe(data => {
+  //   console.log(data)
+  //   this.user = new User();
+  //   this.gotoList();
+  // }, 
+  // error => console.log(error));
 
   this.profileService.updateProfile(Number(this.user.userId), this.profile)
   .subscribe(data => {
