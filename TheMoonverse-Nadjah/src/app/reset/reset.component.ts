@@ -14,8 +14,9 @@ export class ResetComponent implements OnInit {
   submitted = false;
 
   user: User = new User();
-  tempPass: String;
+  
   tempBirth: Date;
+  tempEmail: string;
 
 
   submitted = false;
@@ -26,9 +27,7 @@ export class ResetComponent implements OnInit {
     //need to check birthdat or pasword to whatever the user puts in matches what 
     //the user has on file
 
-  ngOnInit() {
-
-    
+  ngOnInit() {    
   }
 
 
@@ -36,7 +35,6 @@ newUser(): void {
   this.submitted = false;
   this.user = new User();
 }
-
 
 save() {
   this.userService.updateUser(Number(this.user.id), this.user)

@@ -34,10 +34,12 @@ import { MatButtonModule,MatInputModule,MatCardModule} from '@angular/material';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+
+    
     MatInputModule,
     MatCardModule,
     MatButtonModule
-  ],
+  )],
   providers: [CookieService],
   bootstrap: [AppComponent]
 })

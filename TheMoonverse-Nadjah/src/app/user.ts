@@ -7,5 +7,6 @@ export class User {
         numberPosts: number;
         birthDate:string;
 }
+
     
 
