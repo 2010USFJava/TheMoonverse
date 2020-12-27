@@ -39,7 +39,7 @@ import { MatButtonModule,MatInputModule,MatCardModule} from '@angular/material';
     MatInputModule,
     MatCardModule,
     MatButtonModule
-  )],
+  ],
   providers: [CookieService],
   bootstrap: [AppComponent]
 })
