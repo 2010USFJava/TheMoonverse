@@ -16,6 +16,7 @@ import { ResetComponent } from './reset/reset.component';
 import { CookieService } from 'ngx-cookie-service';
 import { MatButtonModule,MatInputModule,MatCardModule} from '@angular/material';
 
+
 @NgModule({
   declarations: [
     AppComponent,
