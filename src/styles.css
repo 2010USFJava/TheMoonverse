@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+#cards{
+    background-color: #001233 ;
+    color: #afb3b4;
+
+
+}
+body{
+    background-color: #1d2025
+
+}
+/* #like-button{
+    background-color:#21dd6f
+} */
+#like-button:focus{
+    background-color:#21ddce
+}
