@@ -96,6 +96,25 @@ public class UsersController {
 		return ResponseEntity.ok().body(user);
 	}
 	
+	@PostMapping("/reset")
+	public Users resetPassword(@Valid @RequestBody Users resetUser) throws ResourceNotFoundException {
+		System.out.println(resetUser.getEmail());
+		List<Users> userList = getAllUsers();
+		Users user = new Users();
+		Iterator<Users> iterator = userList.iterator();
+		while(iterator.hasNext()) {
+			System.out.println(userList.iterator());
+			user = iterator.next();
+			System.out.println(user.getUserId());
+			if(user.getEmail().equals(resetUser.getEmail()) && user.getBirthDate().equals(resetUser.getBirthDate())) {
+				user.setPassword(resetUser.getPassword());
+				final Users updatedUser = userRepo.save(user);
+				return updatedUser;
+			}
+		}
+		throw new ResourceNotFoundException("Reset Password not possible");
+	}
+	
 	@PostMapping("/adduser")
 	public Users createUser(@Valid @RequestBody Users user) {
 		return userRepo.save(user);

@@ -33,7 +33,7 @@ onSubmit() {
         this.cookieService.set('userId', `${this.user.userId}`);
         this.cookieService.set('firstName', `${this.user.firstName}`)
         this.cookieService.set('lastName', `${this.user.lastName}`)
-        console.log(this.cookieService.get('user'));
+        console.log(this.cookieService.get('userId'));
         console.log(this.cookieService.get('firstName'));
         console.log(this.cookieService.get('lastName'));
         this._router.navigate(['posts']);
