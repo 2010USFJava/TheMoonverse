@@ -14,7 +14,6 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { FeedComponent } from './feed/feed.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 import { PostFormComponent } from './post-form/post-form.component';
 import { LogoutComponent } from './logout/logout.component';
 
@@ -40,10 +39,7 @@ import { LogoutComponent } from './logout/logout.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
