@@ -8,14 +8,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { PostsComponent } from './posts/posts.component';
 import { FeedComponent } from './feed/feed.component';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
-
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { ResetComponent } from './reset/reset.component';
 
+import { CookieService } from 'ngx-cookie-service';
+import { MatButtonModule,MatInputModule,MatCardModule} from '@angular/material';
 
 
 @NgModule({
@@ -35,11 +34,11 @@ import { ResetComponent } from './reset/reset.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

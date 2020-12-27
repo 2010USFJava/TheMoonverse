@@ -8,22 +8,22 @@
 
 
     <div class="form-group">
-
-        <p>Please enter your birthdate or password to reset your password</p>
-        <label for="tempBirth">Birth Date</label>
-        <input type="text" class="form-control" id="tempBirth" required [(ngModel)]="tempBirth" name="tempBirth">
+        <p>Please enter your birthdate or current password to reset your password</p>
+        <label for="birthdate">Birth Date</label>
+        <input type="text" class="form-control" id="birthdate" required [(ngModel)]="user.birthDate" name="birthdate">
       </div>
 
       <p>Or enter your password</p>
 
     <div class="form-group">
+
       <label for="tempPass">Pasword</label>
       <input type="text" class="form-control" id="tempPass" required [(ngModel)]="tempPass" name="tempPass">
     </div>
 
     <div class="form-group">
-        <label for="aboutMe">New Password</label>
-        <input type="text" class="form-control" id="aboutMe" required [(ngModel)]="user.password" name="password">
+        <label for="newPass">New Password</label>
+        <input type="text" class="form-control" id="newPass" required [(ngModel)]="user.password" name="password">
       </div>
 
   

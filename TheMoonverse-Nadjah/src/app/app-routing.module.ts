@@ -13,7 +13,7 @@ import { ResetComponent } from './reset/reset.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'index', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent},
   { path: 'profile', component: ProfileComponent },
   { path: 'posts', component: PostsComponent},
