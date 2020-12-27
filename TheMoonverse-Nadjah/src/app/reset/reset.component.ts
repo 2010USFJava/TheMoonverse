@@ -10,12 +10,15 @@ import { UserService } from '../user.service';
   styleUrls: ['./reset.component.css']
 })
 export class ResetComponent implements OnInit {
- 
+  email: string;
+  birthDate: string;
+  password: string;
   user: User = new User();
 
   //submitted = false;
   
- 
+  birth: Date;
+  email: string;
   public resetInvalid: boolean;
 
 
@@ -28,7 +31,7 @@ export class ResetComponent implements OnInit {
   onSubmit() {
     this.resetInvalid = false;
     try{
-    this.userService.updateUser(this.user, this.user.userId).subscribe(
+    this.userService.updatePassword(this.user.email, this.user.birthDate, this.user.password).subscribe(
       data => {
       console.log(data);
       this._router.navigate(['login']);

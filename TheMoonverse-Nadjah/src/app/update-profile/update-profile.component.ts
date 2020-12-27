@@ -12,7 +12,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./update-profile.component.css']
 })
 export class UpdateProfileComponent implements OnInit {
-  
+ 
   uid: number;
 
   user: User = new User();
@@ -45,7 +45,7 @@ export class UpdateProfileComponent implements OnInit {
 
 
 update() {
-  this.userService.updateUser(this.user,this.user.userId, )
+  this.userService.updateUser(this.uid, this.user)
   .subscribe(data => {
     console.log(data);
     this.user = new User();
