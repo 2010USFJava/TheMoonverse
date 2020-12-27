@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -35,6 +36,23 @@ public class UsersController {
 	public List<Users> getAllUsers() {
 		
 		return userRepo.findAll();
+	}
+	
+	@PostMapping("/verify")
+	public Users verifyLogin(@Valid @RequestBody Users loginUser) throws ResourceNotFoundException {
+		System.out.println(loginUser.getEmail());
+		List<Users> userList = getAllUsers();
+		Users user = new Users();
+		Iterator<Users> iterator = userList.iterator();
+		while(iterator.hasNext()) {
+			System.out.println(userList.iterator());
+			user = iterator.next();
+			System.out.println(user.getUserId());
+			if(user.getEmail().equals(loginUser.getEmail()) && user.getPassword().equals(loginUser.getPassword())) {
+				return user;
+			}
+		}
+		throw new ResourceNotFoundException("Login incorrect");
 	}
 	
 	@ResponseStatus(HttpStatus.CREATED)
