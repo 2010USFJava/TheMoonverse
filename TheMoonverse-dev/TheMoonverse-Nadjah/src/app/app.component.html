@@ -1,0 +1,138 @@
+<router-outlet></router-outlet>
+
+
+<!--<app-login></app-login>-->
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <!-- Links -->
+  <ul class="navbar-nav">
+    
+      <li class="nav-item">
+        <a routerLink="users" class="nav-link" routerLink="/feed">Home</a>
+    </li>   
+    <li class="nav-item">
+      <a routerLink="users" class="nav-link" routerLink="/profile">Profile</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" routerLink="/login">Logout</a>
+</li> 
+
+
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>   
+
+  </ul>
+</nav> 
+
+
+
+
+
+    <div class="container">
+    <div class="card"style="text-align: center">    
+      
+      <h1>{{title}}</h1>
+    </div>
+
+    <div >
+      <div class="card-body">
+    <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+  
+  
+  <footer class="footer">
+    <div class="container">
+        <span>MoonVerse Inc.</span>
+    </div>
+  </footer>
+    
+ 
+ 
+
+  
+    
+
+  
+   <!--
+<div class="list-container">
+    <dx-list 
+        #list
+        [dataSource]="products"
+        [height]="400"
+        [searchEnabled]="true"
+        searchExpr="Name"
+        searchMode="contains">
+            <div *dxTemplate="let data of 'item'">
+                <div>{{data.Name}}</div>
+            </div>
+    </dx-list>
+</div>
+<div class="options">
+    <div class="caption">Options</div>
+    <div class="option">
+        <span>Search mode</span>
+        <dx-select-box
+            #searchMode
+            [items]="['contains', 'startsWith']"
+            [(value)]="list.searchMode">
+        </dx-select-box>
+    </div>
+</div>     
+    
+    
+    (input)="search(searchBox.value)"
+      <ul class="search-result">
+      <li *ngFor="let user of users | async" >
+        <a routerLink="/profile/{{tuser.firstName}}">
+          {{tuser.firstName}}
+        </a>
+      </li>
+    </ul> </div>-->
+ 
+
+ 
+
+<!-- nav 
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  </div>
+</nav>-->
+
+<!-- main app container 
+<div class="app-container" [ngClass]="{ 'bg-light': user }">
+  <alert></alert>
+
+  <app-employee-list></app-employee-list>
+  <app-feed>
+
+    <nav>
+  <a class="button" routerLink="/feed">Login</a> |
+  <a class="button" routerLink="/add">Register</a>
+</nav>
+ 
+</div>-->
+
+
+
+
+
+
+
+<!--<app-feed></app-feed>-->
+<!-- credits 
+<div class="text-center mt-4">
+  <p>
+      <a href="https://jasonwatmore.com/post/2020/04/28/angular-9-user-registration-and-login-example-tutorial" target="_top">Angular 9 - User Registration and Login Example & Tutorial</a>
+  </p>
+  <p>
+      <a href="https://jasonwatmore.com" target="_top">JasonWatmore.com</a>
+  </p>
+</div>-->
+
+

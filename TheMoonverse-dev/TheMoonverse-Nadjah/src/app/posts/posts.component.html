@@ -1,0 +1,25 @@
+
+<router-outlet></router-outlet>
+<!--might remake this to a single-->
+
+<div id="cards" class="card w-80 text-center" style="margin:2%;"> <!--use reverse pipe shows newest post first-->
+  <div class="card-header">
+      <a href="#" class="card-link"> Petra Maurer</a>
+  </div>
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <p class="card-text"><div class="form-group">
+      <label for="postText">Comment</label>
+      <input type="text" class="form-control" id="postText" required [(ngModel)]="post.postText" name="postText">
+      <footer class="blockquote-footer text-right">
+        <cite title="Source Title"> {{dateMessage}}</cite>
+      </footer>
+  </div>
+  <div class="card-footer text-muted text-right">
+    <button type="submit" class="btn btn-success" routerLink="/profile">Post</button>
+      <!-- add  like fuinction to like buttons-->
+  </div>
+
+      <!-- add  like fuinction to like buttons-->
+  </div>
+</div>
