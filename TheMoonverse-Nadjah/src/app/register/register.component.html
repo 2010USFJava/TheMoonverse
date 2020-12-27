@@ -1,0 +1,60 @@
+<router-outlet></router-outlet>
+
+<h3 style ="text-align: center">Create new MoonVerse account!</h3>
+<div class="card w-80 text-center" style="margin:2%;">
+<div [hidden]="submitted" >
+  <form style="margin:2%;"  (ngSubmit)="onSubmit()">
+   
+
+    <div class="form-group" style="margin:2%" >
+      <label for="name">Email</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
+    </div>
+
+   <div class="form-group">
+      <label for="name">Password </label>
+      <input type="text" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
+    </div>
+
+    <div class="form-group">
+        <label for="name">First Name</label>
+        <input type="text" class="form-control" id="firstName" required [(ngModel)]="user.firstName" name="firstName">
+      </div>
+
+    <div class="form-group">
+      <label for="name">Last Name</label>
+      <input type="text" class="form-control" id="lastName" required [(ngModel)]="user.lastName" name="lastName">
+    </div>
+
+    <div class="form-group">
+        <label for="name">Birthdate</label>
+        <input type="text" class="form-control" id="birthDate" required [(ngModel)]="user.birthDate" name="birthDate">
+      </div>
+
+      <!DOCTYPE html>
+<html>
+<head>
+<title>Upload profile picture</title>
+</head>
+
+<body>
+<form>
+  Upload Profile Picture here
+<input type="file" name="name" multiple><br><br>
+After uploading file, click Submit.<br>
+<input type="submit" value="Submit">
+</form>
+</body>
+</html>
+   
+
+      <button class="btn btn-success" (click)="newUser()">register</button> 
+    <!--<button type="submit" class="btn btn-success">Submit</button>-->
+  </form>
+</div>
+</div>
+
+<div [hidden]="submitted">
+  <!--<h4>You now exist in The MoonVerse!!!</h4>
+  <button class="btn btn-success" (click)="newuser()">register</button> -->
+</div>
