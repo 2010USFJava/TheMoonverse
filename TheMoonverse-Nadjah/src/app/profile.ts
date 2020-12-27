@@ -1,6 +1,7 @@
 export class Profile {
 
-    
+    postId: number;
+    userId: number;
     aboutMe:string;
     age:number;
     city:string;
@@ -8,6 +9,6 @@ export class Profile {
     favoritePlanet:string;
     profilePicture:string;
     countLikes: number;
-    userId: number;
+    
 
 }

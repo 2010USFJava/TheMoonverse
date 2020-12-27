@@ -3,12 +3,15 @@ import { Router } from '@angular/router';
 import { User } from '../user';
 import { UserService } from '../user.service';
 
+
 @Component({
   selector: 'app-reset',
   templateUrl: './reset.component.html',
   styleUrls: ['./reset.component.css']
 })
 export class ResetComponent implements OnInit {
+  user: User = new User();
+  submitted = false;
 
   user: User = new User();
   
