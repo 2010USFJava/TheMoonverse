@@ -27,8 +27,11 @@ export class UserService {
     return this.http.post(`${this.baseUrl}/adduser`, user);
   }
 
-  updatePassword(email: string, birthDate: string, password: string): Observable<Object> {
-    return this.http.post(`${this.baseUrl}/reset`, {email, birthDate, password}) ;
+  updateUser(user: Object, id: number): Observable<Object> {
+    return this.http.post(`${this.baseUrl}/verify/${id}`, user);
+    }
+  updateProfile(id: number, value: any): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${id}`, value);
   }
 
   deleteUser(id: number): Observable<any> {
