@@ -1,10 +1,12 @@
 export class User {
-        id:number;
+        userId:number;
         email:string;
         password:string;
         firstName:string;
         lastName:string;
-        birthDate:Date;
-    }
+        numberPosts: number;
+        birthDate:string;
+}
+
     
 

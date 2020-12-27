@@ -1,29 +1,43 @@
-<router-outlet></router-outlet>
-
-<!--<app-form></app-form>
-<app-login *ngIf="isOn"></app-login>
-
-<app-feed *ngIf="!isOn"></app-feed>
-<app-register *ngIf="!isOn"></app-register>
-(click)="isOn= false"
-(click)="isOn= true"-->
-
-
-
-<div class="card w-80 text-center" style="margin:5%;">
-<form style="margin: 2%">
-    <div class="form-group">
-      <label for="name">Username</label>
-      <input type="text" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
-    </div>
-
-   <div class="form-group">
-      <label for="name">Password </label>
-      <input type="text" class="form-control" id="password" required [(ngModel)]="user.password" name="password">
-    </div>
-    <button type="submit" class="btn btn-success" routerLink="/feed">Login</button>
-   <!-- <br>
+<mat-card>
+  <mat-card-content>
+      <form name="login-form" (ngSubmit)="onSubmit()">
+          <h2>Login</h2>
+          <br>
+          <div>
+              <mat-error *ngIf="loginInvalid">
+                  The email and password were not recognised
+               </mat-error>
+              <label for="email">Email</label>
+              <mat-form-field class="full-width-input">
+                  <input matInput type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required />
+                  <mat-error>
+                      Please provide a valid email address
+                  </mat-error>
+              </mat-form-field> 
+          </div>
+          <br>
+          <br>
+          <div>
+              <label for="password">Password</label>
+              <mat-form-field class="full-width-input">
+                  <input matInput type="password" name="password" [(ngModel)]="user.password" #password="ngModel" required />
+                  <mat-error>
+                      Please provide a valid password
+                  </mat-error>
+                  <br>
+              </mat-form-field>
+          </div>
+          <br>
+          <br>
+          <div>
+              <button mat-raised-button type=submit  value=login>Login</button>
+          </div>
+      </form>
     <br>
-    <button type="submit" class="btn btn-success" routerLink="/register" >Register</button>-->
-  </form>
-</div>
+    <div>
+        <a routerLink="/reset">Reset Password</a>
+        <br>
+        <a routerLink="/register">Create a new account</a>
+    </div>
+  </mat-card-content>
+</mat-card>
