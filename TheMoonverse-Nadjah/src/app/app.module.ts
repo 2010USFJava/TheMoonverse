@@ -36,7 +36,7 @@ import { ResetComponent } from './reset/reset.component';
     FormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
+    InMemoryDataService, { dataEncapsulation: false }
     )
   ],
   providers: [],

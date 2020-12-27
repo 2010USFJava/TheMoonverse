@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 
 export class UserService {
-  private baseUrl= 'http://localhost:5555/TheMoonverse/moon/users'
+  private baseUrl= 'http://localhost:5555/moon/users'
   http: any;
   constructor() { }
 

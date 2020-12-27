@@ -1,10 +1,10 @@
 export class User {
-        id:string;
+        id:number;
         email:string;
         password:string;
         firstName:string;
         lastName:string;
-        birthDate:string;
+        birthDate:Date;
     }
     
 
