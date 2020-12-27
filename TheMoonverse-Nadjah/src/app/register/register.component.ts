@@ -52,4 +52,4 @@ onSubmit() {
     this.registerInvalid = true;  
 }
 }
-}
+
