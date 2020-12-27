@@ -13,7 +13,7 @@ export class AuthService {
    * this is used to clear anything that needs to be removed
    */
   clear(): void {
-    this.cookieService.deleteAll();
+    localStorage.clear();
   }
 
   /**
