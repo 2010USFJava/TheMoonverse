@@ -1,7 +1,7 @@
-<router-outlet></router-outlet>
 
 
-<!--<app-login></app-login>-->
+
+
 <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
   <!-- Links -->
   <ul class="navbar-nav">
@@ -20,14 +20,10 @@
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>   
+    </form>  
 
   </ul>
 </nav> 
-
-
-
-
 
     <div class="container">
     <div class="card"style="text-align: center">    
@@ -35,13 +31,9 @@
       <h1>{{title}}</h1>
     </div>
 
-    <div >
-      <div class="card-body">
-    <router-outlet></router-outlet>
-      </div>
-    </div>
-  </div>
-  
+ <div>
+  <router-outlet></router-outlet>
+ </div>
   
   <footer class="footer">
     <div class="container">
