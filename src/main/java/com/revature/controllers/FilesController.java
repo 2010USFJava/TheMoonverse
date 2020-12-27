@@ -1,7 +1,9 @@
-package revature.com;
+package com.revature.controllers;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.ProtocolException;
 import java.net.URL;
 
 import org.springframework.stereotype.Controller;
@@ -26,7 +28,7 @@ import com.amazonaws.services.s3.model.S3Object;
 public class FilesController {
  
  @PostMapping("/upload")
- public String singleFileUpload(@RequestParam("file") File file, RedirectAttributes redirectAttributes) {
+ public String singleFileUpload(@RequestParam("file") File file, RedirectAttributes redirectAttributes) throws IOException {
 
 	 String clientRegion = "us-east-2";
      String bucketName = "moonv";
@@ -97,16 +99,17 @@ public class FilesController {
          // couldn't parse the response from Amazon S3.
          e.printStackTrace();
      }
+     return "posts";
  }
  
  @GetMapping("/uploadStatus")
  public String uploadStatus(ModelMap m) {
-  return "Homepage";
+  return  "posts";
  }
  
  @GetMapping("/upload")  
  public String displayHomePageForAlarm() {
-  return "Homepage";
+  return  "posts";
  }
 
 }
