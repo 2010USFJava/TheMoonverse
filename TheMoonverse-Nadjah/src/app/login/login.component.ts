@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   user: User = new User();
   public loginInvalid: boolean;
 
-  constructor(private myUser:UserService, private _router: Router, private cookieService: CookieService) { }
+  constructor(private myUser:UserService, private _route: ActivatedRoute, private _router: Router, private cookieService: CookieService) { }
 
 ngOnInit(): void {
 }
@@ -37,7 +37,7 @@ onSubmit() {
         console.log(this.cookieService.get('lastName'));
         this._router.navigate(['posts']);
       } 
-  
+
     )
 
   } catch (err) {

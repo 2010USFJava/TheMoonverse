@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,10 @@ export class UserService {
   
   private baseUrl= 'http://localhost:9090/api/v1'
   
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private _authService: AuthService) { }
   getLogin(email:string, password:string):Observable<any>{
     console.log("in service login " + email + password)
+    this._authService.login();
     return this.http.post(`${this.baseUrl}/verify`, {email, password}) ;
   }
 
