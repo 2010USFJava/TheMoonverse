@@ -38,7 +38,7 @@ export class FeedService {
   }
 
   makePost(post: Posts): Observable<Posts>{
-    return this.http.post<Posts>(this.feedUrl, post, this.httpOptions);
+    return this.http.post<Posts>(`${this.feedUrl}/addpost`, post, this.httpOptions);
   }
   
   updatePost(post: Posts): Observable<Posts>{

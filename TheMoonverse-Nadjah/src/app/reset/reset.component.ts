@@ -14,56 +14,20 @@ export class ResetComponent implements OnInit {
   birthDate: string;
   password: string;
   user: User = new User();
-<<<<<<< HEAD
-  submitted = false;
-  tempBirth: Date;
-  tempEmail: string;
-
-  constructor(private userService: UserService, 
-    private router: Router) { }
-=======
 
   //submitted = false;
   
   birth: Date;
-  email: string;
+
   public resetInvalid: boolean;
 
 
->>>>>>> cbc3cc4f977dd45eda5d2c103a18964266b77c45
 
   constructor(private userService: UserService, private _route: ActivatedRoute, private _router: Router) { }
 
   ngOnInit(): void {    
   }
 
-<<<<<<< HEAD
-
-newUser(): void {
-  this.submitted = false;
-  this.user = new User();
-}
-
-save() {
-  this.userService.updateUser(Number(this.user.userId), this.user)
-  .subscribe(data => {
-    console.log(data)
-    this.user = new User();
-    this.gotoList();
-  }, 
-  error => console.log(error));
-}
-
-onSubmit() {
-  this.submitted = true;
-  this.save();    
-}
-
-gotoList() {
-  this.router.navigate(['/user']);
-
-}
-=======
   onSubmit() {
     this.resetInvalid = false;
     try{
@@ -78,5 +42,4 @@ gotoList() {
       this.resetInvalid = true;  
   }
   }
->>>>>>> cbc3cc4f977dd45eda5d2c103a18964266b77c45
 }
