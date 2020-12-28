@@ -18,7 +18,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { MatButtonModule,MatInputModule,MatCardModule} from '@angular/material';
 import { ReversePipe } from './reverse.pipe';
 
-
+import { AuthGuard } from './auth-guard.service';
 
 
 @NgModule({
@@ -43,7 +43,7 @@ import { ReversePipe } from './reverse.pipe';
     MatCardModule,
     MatButtonModule
   ],
-  providers: [CookieService],
+  providers: [CookieService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

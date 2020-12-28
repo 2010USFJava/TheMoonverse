@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
   user: User = new User();
   public loginInvalid: boolean;
 
-  constructor(private myUser:UserService, private _router: Router, private cookieService: CookieService) { }
+  constructor(private myUser:UserService, private _route: ActivatedRoute, 
+    private _router: Router, private cookieService: CookieService) { }
 
 ngOnInit(): void {
 }
@@ -32,12 +33,12 @@ onSubmit() {
         this.cookieService.set('userId', `${this.user.userId}`);
         this.cookieService.set('firstName', `${this.user.firstName}`)
         this.cookieService.set('lastName', `${this.user.lastName}`)
-        console.log(this.cookieService.get('user'));
+        console.log(this.cookieService.get('userId'));
         console.log(this.cookieService.get('firstName'));
         console.log(this.cookieService.get('lastName'));
         this._router.navigate(['posts']);
       } 
-  
+
     )
 
   } catch (err) {

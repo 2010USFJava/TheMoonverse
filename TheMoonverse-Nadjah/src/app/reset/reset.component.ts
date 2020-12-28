@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user';
 import { UserService } from '../user.service';
 
@@ -10,20 +10,34 @@ import { UserService } from '../user.service';
   styleUrls: ['./reset.component.css']
 })
 export class ResetComponent implements OnInit {
+  email: string;
+  birthDate: string;
+  password: string;
   user: User = new User();
+<<<<<<< HEAD
   submitted = false;
   tempBirth: Date;
   tempEmail: string;
 
   constructor(private userService: UserService, 
     private router: Router) { }
+=======
 
-    //need to check birthdat or pasword to whatever the user puts in matches what 
-    //the user has on file
+  //submitted = false;
+  
+  birth: Date;
+  email: string;
+  public resetInvalid: boolean;
 
-  ngOnInit() {    
+
+>>>>>>> cbc3cc4f977dd45eda5d2c103a18964266b77c45
+
+  constructor(private userService: UserService, private _route: ActivatedRoute, private _router: Router) { }
+
+  ngOnInit(): void {    
   }
 
+<<<<<<< HEAD
 
 newUser(): void {
   this.submitted = false;
@@ -49,4 +63,20 @@ gotoList() {
   this.router.navigate(['/user']);
 
 }
+=======
+  onSubmit() {
+    this.resetInvalid = false;
+    try{
+    this.userService.updatePassword(this.user.email, this.user.birthDate, this.user.password).subscribe(
+      data => {
+      console.log(data);
+      this._router.navigate(['login']);
+    }
+    ) 
+  }
+    catch (err) {
+      this.resetInvalid = true;  
+  }
+  }
+>>>>>>> cbc3cc4f977dd45eda5d2c103a18964266b77c45
 }
