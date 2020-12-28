@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../user';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -17,9 +18,11 @@ export class LoginComponent implements OnInit {
   user: User = new User();
   public loginInvalid: boolean;
 
-  constructor(private myUser:UserService, private _route: ActivatedRoute, private _router: Router, private cookieService: CookieService) { }
+  constructor(private myUser:UserService, private _route: ActivatedRoute, private _router: Router, private cookieService: CookieService, private authService: AuthService) { }
 
-ngOnInit(): void {
+ngOnInit() {
+  this.cookieService.deleteAll();
+  this.authService.logout();
 }
 onSubmit() {
   this.loginInvalid = false;

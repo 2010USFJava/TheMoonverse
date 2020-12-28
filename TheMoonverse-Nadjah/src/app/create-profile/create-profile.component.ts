@@ -33,9 +33,9 @@ export class CreateProfileComponent implements OnInit {
 
 onSubmit(){
       this.profile.profileId = 0;
-      this.profile.profilePicture = "null";
+      this.profile.profilePicture = "https://moonv.s3.us-east-2.amazonaws.com/moon.jpg";
       this.profile.user = this.user;
-  this.profileService.createProfile(this.profile).subscribe(
+      this.profileService.createProfile(this.profile).subscribe(
     data2 => {
       
       console.log(data2);
