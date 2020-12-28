@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Profile } from '../profile';
 import { ProfileService } from '../profileService';
 import { User } from '../user';
@@ -12,57 +12,49 @@ import { UserService } from '../user.service';
   styleUrls: ['./update-profile.component.css']
 })
 export class UpdateProfileComponent implements OnInit {
- 
-  uid: number;
-
-  user: User = new User();
   profile: Profile = new Profile();
-  submitted = false;  
+  submitted = false;
+  user: User = new User();
+  
 
-  /*  constructor(private route: ActivatedRoute,private router: Router,
-    private employeeService: EmployeeService) { } */
-  constructor(private route: ActivatedRoute, private userService: UserService,
-     private profileService: ProfileService, private router: Router) { }
+  constructor(private userService: UserService, private profileService: ProfileService,
+    private router: Router) { }
 
   ngOnInit() {
-    this.user = new User();
-    this.profile = new Profile();
-
-    this.uid = this.route.snapshot.params['uid']; 
-
-    this.userService.getUser(this.uid)
-      .subscribe(data => {
-        console.log(data)
-        this.user = data;
-      }, error => console.log(error));
-
-      this.profileService.getProfile(this.uid)
-      .subscribe(data => {
-        console.log(data)
-        this.profile = data;
-      }, error => console.log(error));
   }
 
 
-update() {
-  this.userService.updateUser(this.uid, this.user)
-  .subscribe(data => {
-    console.log(data);
-    this.user = new User();
-    this.gotoList();
-  }, error => console.log(error));
+newUser(): void {
+  this.submitted = false;
+  this.user = new User();
+}
 
-  this.profileService.updateProfile(this.uid, this.user)
+newProfile(): void{
+  this.submitted = false;
+  this.profile = new Profile;
+}
+
+save() {
+  // this.userService.updateUser(Number(this.user.userId), this.user)
+  // .subscribe(data => {
+  //   console.log(data)
+  //   this.user = new User();
+  //   this.gotoList();
+  // }, 
+  // error => console.log(error));
+
+  this.profileService.updateProfile(Number(this.user.userId), this.profile)
   .subscribe(data => {
-    console.log(data);
+    console.log(data)
     this.profile = new Profile();
     this.gotoList();
-  }, error => console.log(error));
+  }, 
+  error => console.log(error));
 }
 
 onSubmit() {
   this.submitted = true;
-  this.update();    
+  this.save();    
 }
 
 gotoList() {
