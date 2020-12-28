@@ -27,7 +27,7 @@ export class UpdateProfileComponent implements OnInit {
 // newUser(): void {
 //   this.submitted = false;
 //   this.user = new User();
-// }
+// f}
 
 // newProfile(): void{
 //   this.submitted = false;

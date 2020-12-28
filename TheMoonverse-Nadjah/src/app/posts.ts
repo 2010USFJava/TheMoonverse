@@ -3,7 +3,7 @@ import { User } from "./user";
 export class Posts {
 
     postId:number;
-    userId: any;
+    user: User;
     countLikes:number;
     postText:string;
     postDate:string;

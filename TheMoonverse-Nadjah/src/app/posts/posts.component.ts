@@ -6,6 +6,7 @@ import { Posts } from '../posts';
 import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../user.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-posts',
@@ -18,6 +19,8 @@ export class PostsComponent implements OnInit {
   posts: Posts[];
   dateMessage: String;
   submitted = false;
+  user: User = new User;
+  userId: any;
 
 
 
@@ -31,17 +34,24 @@ export class PostsComponent implements OnInit {
   ){
     
   }
-  ngOnInit(): void {
+  ngOnInit() {
     let currentDate = new Date()
     this.dateMessage = currentDate.toDateString();
+    this.userId = this.cookie.get('userId');
+    this.userService.getUser(this.userId).subscribe(
+      data => {
+        this.user = data;
+      }
+    )
+    
   }
 
   onSubmit(){
    this.post.postId = 0;
-   this.post.userId = this.userService.getUser(Number(this.cookie.get('userId'))); //get cookie user here
+   this.post.user = this.user;
    this.post.countLikes=0;
-   this.post.postDate = this.dateMessage.trim();
-   this.post.postMediaUrl = '';
+   this.post.postDate = '2020-12-28';
+   this.post.postMediaUrl = 'https://moonv.s3.us-east-2.amazonaws.com/rocket.jpeg';
 
    this.feed.makePost(this.post)
    .subscribe(post => {
