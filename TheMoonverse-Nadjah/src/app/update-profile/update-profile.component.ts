@@ -14,11 +14,8 @@ import { UserService } from '../user.service';
 export class UpdateProfileComponent implements OnInit {
   profile: Profile = new Profile();
   submitted = false;
-
   user: User = new User();
-  profile: Profile = new Profile();
-
-  submitted = false;
+  
 
   constructor(private userService: UserService, private profileService: ProfileService,
     private router: Router) { }
@@ -38,7 +35,7 @@ newProfile(): void{
 }
 
 save() {
-  this.userService.updateUser(Number(this.user.id), this.user)
+  this.userService.updateUser(Number(this.user.userId), this.user)
   .subscribe(data => {
     console.log(data)
     this.user = new User();
@@ -46,7 +43,7 @@ save() {
   }, 
   error => console.log(error));
 
-  this.profileService.updateProfile(Number(this.user.id), this.profile)
+  this.profileService.updateProfile(Number(this.user.userId), this.profile)
   .subscribe(data => {
     console.log(data)
     this.profile = new Profile();

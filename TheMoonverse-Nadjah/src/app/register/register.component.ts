@@ -30,7 +30,7 @@ newUser(): void {
 
 
 
-  this.user.id = 0;
+  this.user.userId = 0;
 
   this.isCollapsed = false;
 

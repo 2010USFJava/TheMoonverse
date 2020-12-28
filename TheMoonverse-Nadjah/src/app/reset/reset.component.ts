@@ -12,14 +12,8 @@ import { UserService } from '../user.service';
 export class ResetComponent implements OnInit {
   user: User = new User();
   submitted = false;
-
-  user: User = new User();
-  
   tempBirth: Date;
   tempEmail: string;
-
-
-  submitted = false;
 
   constructor(private userService: UserService, 
     private router: Router) { }
@@ -37,7 +31,7 @@ newUser(): void {
 }
 
 save() {
-  this.userService.updateUser(Number(this.user.id), this.user)
+  this.userService.updateUser(Number(this.user.userId), this.user)
   .subscribe(data => {
     console.log(data)
     this.user = new User();

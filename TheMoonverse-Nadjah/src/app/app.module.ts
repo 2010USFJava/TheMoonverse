@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,9 @@ import { ResetComponent } from './reset/reset.component';
 
 import { CookieService } from 'ngx-cookie-service';
 import { MatButtonModule,MatInputModule,MatCardModule} from '@angular/material';
+import { ReversePipe } from './reverse.pipe';
+
+
 
 
 @NgModule({
@@ -27,19 +31,18 @@ import { MatButtonModule,MatInputModule,MatCardModule} from '@angular/material';
     LoginComponent,
     RegisterComponent,
     UpdateProfileComponent,
-    ResetComponent
+    ResetComponent,
+    ReversePipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
-    
     MatInputModule,
     MatCardModule,
     MatButtonModule
-  )],
+  ],
   providers: [CookieService],
   bootstrap: [AppComponent]
 })

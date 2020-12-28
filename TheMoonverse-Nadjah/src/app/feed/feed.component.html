@@ -1,21 +1,22 @@
+<h3>Global feed</h3>
 <router-outlet></router-outlet> <!--don't forget this..you'll regret it-->
 
-
-<div class="card w-80 text-center" *ngFor="let post of posts" style="margin:2%;"> <!--use reverse pipe shows newest post first-->
+<div id="cards" class="card w-80 text-center"  
+*ngFor="let post of posts| reverse" style="margin:2%;">
+    
     <div class="card-header">
-        <a href="#" class="card-link"> user {{post.userId}}</a>
-        <a href="#" class="card-link"> post {{post.userId}}</a>
+        <a href="#" class="card-link"> user {{post.userId.userId}}</a>
+        <a href="#" class="card-link"> post {{post.postId}}</a>
     </div>
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top"  src={{post.postMediaUrl}} alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title">Poster</h5>
       <p class="card-text">{{post.postText}}</p>
-      <footer class="blockquote-footer text-right"> user {{post.userId}} 
+      <footer class="blockquote-footer text-right"> {{post.userId.firstName}} {{post.userId.lastName}} 
           <cite title="Source Title"> on {{post.postDate}}</cite>
         </footer>
     </div>
     <div class="card-footer text-muted text-right">
-        <button type="button" data-toggle="button" 
+        <button type="button" data-toggle="button" id="like-button" (click)="like(post.countLikes)"
             class="btn btn-outline-primary btn-sm" autocomplete="off" 
                 style="margin: 2%">Like
         </button>{{post.countLikes}} likes

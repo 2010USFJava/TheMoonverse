@@ -1,25 +1,20 @@
-
 <router-outlet></router-outlet>
-<!--might remake this to a single-->
 
-<div id="cards" class="card w-80 text-center" style="margin:2%;"> <!--use reverse pipe shows newest post first-->
-  <div class="card-header">
-      <a href="#" class="card-link"> Petra Maurer</a>
-  </div>
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <p class="card-text"><div class="form-group">
-      <label for="postText">Comment</label>
-      <input type="text" class="form-control" id="postText" required [(ngModel)]="post.postText" name="postText">
-      <footer class="blockquote-footer text-right">
-        <cite title="Source Title"> {{dateMessage}}</cite>
-      </footer>
-  </div>
-  <div class="card-footer text-muted text-right">
-    <button type="submit" class="btn btn-success" routerLink="/feed">Post</button>
-      <!-- add  like fuinction to like buttons-->
-  </div>
-
-      <!-- add  like fuinction to like buttons-->
-  </div>
-</div>
+<div class="card gedf-card">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">
+                  A MoonCoin for Your Thoughts ?</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <div class="form-group"(ngSubmit) = "onSubmit()">
+            <label class="sr-only" for="message">post</label>
+            <textarea type="text" required  class="form-control" id="message" name="message" required
+            [(ngModel)]="post.postText" rows="3" placeholder="What are you thinking?"></textarea>
+            
+            <button class="btn btn-outline-success" type ="submit" routerLink="/login" (click)="onSubmit()">Blast Off!</button>
+        </div>
+    </div>
