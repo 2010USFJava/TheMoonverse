@@ -14,7 +14,7 @@ Add these values into the application.properties file.
 - Run the command ```npm install``` to install the correct packages.
 - Run the command ```npm serve -o``` to run the angular app. It will automatically open in the browser on ```http://localhost:4200/```.
 
-### Tech
+## Tech
 - [Trello - Meetings & Administration](https://trello.com/b/uvCDekqY/the-moonverse-meetings-administration)
 - [Trello - User Stories](https://trello.com/b/WTO41OAX/project-2-user-stories)
 - Spring MVC/SpringBoot
