@@ -16,6 +16,7 @@ import { ResetComponent } from './reset/reset.component';
 import { CookieService } from 'ngx-cookie-service';
 import { MatButtonModule,MatInputModule,MatCardModule} from '@angular/material';
 import { AuthGuard } from './auth-guard.service';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
 
 
 @NgModule({
@@ -28,15 +29,14 @@ import { AuthGuard } from './auth-guard.service';
     LoginComponent,
     RegisterComponent,
     UpdateProfileComponent,
-    ResetComponent
+    ResetComponent,
+    CreateProfileComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
-    
     MatInputModule,
     MatCardModule,
     MatButtonModule

@@ -1,14 +1,13 @@
+import { User } from "./user";
+
 export class Profile {
 
-    postId: number;
-    userId: number;
+    profileId: number;
+    user: User;
     aboutMe:string;
     age:number;
     city:string;
     profession:string;
     favoritePlanet:string;
     profilePicture:string;
-    countLikes: number;
-    
-
 }

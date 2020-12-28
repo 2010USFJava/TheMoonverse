@@ -11,6 +11,7 @@ import { RegisterComponent } from './register/register.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { ResetComponent } from './reset/reset.component';
 import { AuthGuard } from './auth-guard.service';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'feed', component: FeedComponent, canActivate: [AuthGuard]},  
   { path: 'register', component: RegisterComponent},
   { path: 'update-profile', component: UpdateProfileComponent, canActivate: [AuthGuard]},
+  { path: 'create-profile', component: CreateProfileComponent, canActivate: [AuthGuard]},
   { path: 'reset', component: ResetComponent}
 ];
 

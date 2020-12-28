@@ -18,8 +18,8 @@ export class UserService {
     return this.http.post(`${this.baseUrl}/verify`, {email, password}) ;
   }
 
-  getUser(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getUser(userId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/users/${userId}`);
   }
 
   registerUser(user: Object): Observable<Object> {
