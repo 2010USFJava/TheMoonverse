@@ -8,7 +8,7 @@ This project was generated with [Angular CLI](https://github.com/Java-Techie-jt/
 - Save the endpoint connection(url), the username, and the password used to set up your database.
 Add these values into the application.properties file.
 - Set up a connection in DBeaver using the url to establish a connection.
-- Run the moonverse.sql file to create new tables.
+- Run the ```moonverse.sql``` file to create new tables.
 - Run TheMoonverse project as a Spring Boot application in Spring Tool Suite.
 - Open up the Angular portion of the app in Visual Studio Code.
 - Run the command ```npm install``` to install the correct packages.
