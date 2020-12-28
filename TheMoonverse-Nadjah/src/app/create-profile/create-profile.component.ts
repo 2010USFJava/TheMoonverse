@@ -32,14 +32,15 @@ export class CreateProfileComponent implements OnInit {
   }
 
 onSubmit(){
-  
+      this.profile.profileId = 0;
+      this.profile.profilePicture = "null";
+      this.profile.user = this.user;
   this.profileService.createProfile(this.profile).subscribe(
     data2 => {
-      this.profile.profileId = 0;
-      this.profile.user = this.user;
+      
       console.log(data2);
       this.profile = new Profile();
-      //this._router.navigate(['profile']);
+      this._router.navigate(['profile']);
     }
   )
 }
