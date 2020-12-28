@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,23 +59,29 @@ public class ProfileController {
 		profile.getUser().getUserId();
 		return profileRepo.save(profile);
 		//ToDO - log new profile created
-}
-	@PutMapping("/profile/{profile_id}")
-	public ResponseEntity<Profile> updateProfile(@PathVariable(value="profile_id")int profileId, @RequestBody Profile profileDetails)
-		throws ResourceNotFoundException{
-				Profile profile = profileRepo.findById(profileId)
-						.orElseThrow(() -> new ResourceNotFoundException("Profile not found for this id::" + profileId));
-				
-		profile.setAboutMe(profileDetails.getAboutMe());
-		//profile.setUser(profileDetails.getUser().getUserId());
-		profile.setAge(profileDetails.getAge());
-		profile.setCity(profileDetails.getCity());
-		profile.setProfession(profileDetails.getProfession());
-		profile.setFavoritePlanet(profileDetails.getFavoritePlanet());
-		profile.setProfilePicture(profileDetails.getProfilePicture());
 		
-		final Profile updatedProfile = profileRepo.save(profile);
-		return ResponseEntity.ok(updatedProfile);
+}
+	@PostMapping("/updateprofile")
+	public Profile updateProfile(@Valid @RequestBody Profile updateProfile) throws ResourceNotFoundException {
+		System.out.println(updateProfile.getProfileId());
+		int updateProfileId = updateProfile.getProfileId();
+;		List<Profile> profileList = getAllProfiles();
+		Profile profile = new Profile();
+		Iterator<Profile> iterator = profileList.iterator();
+		while(iterator.hasNext()) {
+			profile = iterator.next();
+			if(profile.getProfileId() == updateProfileId) {
+				profile.setAboutMe(updateProfile.getAboutMe());
+				profile.setAge(updateProfile.getAge());
+				profile.setCity(updateProfile.getCity());
+				profile.setFavoritePlanet(updateProfile.getFavoritePlanet());
+				profile.setProfession(updateProfile.getProfession());
+				profile.setProfilePicture(updateProfile.getProfilePicture());
+				final Profile updatedProfile = profileRepo.save(profile);
+				return updatedProfile;
+			}
+		}
+		throw new ResourceNotFoundException("Update Profile not possible");
 	}
 
 }
