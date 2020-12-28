@@ -64,7 +64,7 @@ public class ProfileController {
 						.orElseThrow(() -> new ResourceNotFoundException("Profile not found for this id::" + profileId));
 				
 		profile.setAboutMe(profileDetails.getAboutMe());
-		profile.setUserId(profileDetails.getUserId());
+		//profile.setUser(profileDetails.getUser().getUserId());
 		profile.setAge(profileDetails.getAge());
 		profile.setCity(profileDetails.getCity());
 		profile.setProfession(profileDetails.getProfession());

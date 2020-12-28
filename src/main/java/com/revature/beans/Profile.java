@@ -68,7 +68,7 @@ public class Profile {
 		return user;
 	}
 
-	public void setUser(Users user) {
+	public void setUserId(Users user) {
 		this.user = user;
 	}
 	public String getAboutMe() {
