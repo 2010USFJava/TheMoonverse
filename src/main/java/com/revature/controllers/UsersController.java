@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.List;
@@ -116,8 +117,10 @@ public class UsersController {
 	}
 	
 	@PostMapping("/adduser")
-	public Users createUser(@Valid @RequestBody Users user) {
+	public Users createUser(@Valid @RequestBody Users user) throws IOException {
+		com.revature.services.logit.LogIt("info", "New user login created "+ user.getEmail());
 		return userRepo.save(user);
+		
 	}
 	
 	@PutMapping("/users/{user_id}")
