@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../user';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UserService } from '../user.service';
 import { Profile } from '../profile';
+import { CookieService } from 'ngx-cookie-service';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,53 +13,38 @@ import { Profile } from '../profile';
 
   export class ProfileComponent implements OnInit 
   {
-   /* name: String;
-    aboutMe: String;
-    age: number;
-    city: String;
-    proffesion: String;
-    favoritePlanet : String;
-    profilePicture: String;*/
-    //profile: Profile;
-   
-    //id: number;
-    //user: User;
-    tuser: any;
-  
-  //  constructor(private route: ActivatedRoute,private router: Router,
-//private userService: UserService) { 
-        constructor() { 
-      
+    profile: Profile = new Profile;
+    userId: any;
+    firstName: string;
+    lastName: string;
+    public userExists: boolean;
+    public noProfile: boolean;
+
+        constructor(private profileService: ProfileService, private _route: ActivatedRoute, private _router: Router, private cookieService: CookieService) { 
       }
 
-      ngOnInit() {
-        this.tuser =
-        {
-          name: 'Petra Maurer',
-          aboutMe: 'I love nerds!',
-          age: 30,
-          city: 'Lawrenceville',
-          proffesion: 'Software Developer',
-          favoritePlanet : 'Jupiter',
-          countLikes: 10
-
-        };
+      ngOnInit() { 
+        this.userId = this.cookieService.get('userId');
+        this.firstName = this.cookieService.get('firstName');
+        this.lastName = this.cookieService.get('lastName');
+        try{
+          this.profileService.getProfile(this.userId).subscribe(
+          data => {
+          console.log(data);
+          this.profile = data;
+          this.cookieService.set('profileId', `${this.profile.profileId}`);
+          this.userExists = true;
+          this.noProfile = false;
+          console.log(this.userExists);
+        }
+        )
+      } finally {
+        if(this.cookieService.get('profileId') == ("") || this.cookieService.get('profileId') == (" ") || this.cookieService.get('profileId') == ("undefined") ) {
+          this.noProfile = true;
+          console.log(this.noProfile);
+        }
+        
        
       }
-  
- /*   ngOnInit() {
-      this.user = new User();
-  
-      this.id = this.route.snapshot.params['id'];
-      
-      this.userService.getUser(this.id)
-        .subscribe(data => {
-          console.log(data)
-          this.user = data;
-        }, error => console.log(error));
     }
-  
-    list(){
-      this.router.navigate(['user']);
-    }*/
   }

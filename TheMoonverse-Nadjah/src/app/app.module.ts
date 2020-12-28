@@ -19,6 +19,7 @@ import { MatButtonModule,MatInputModule,MatCardModule} from '@angular/material';
 import { ReversePipe } from './reverse.pipe';
 
 import { AuthGuard } from './auth-guard.service';
+import { CreateProfileComponent } from './create-profile/create-profile.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { AuthGuard } from './auth-guard.service';
     UpdateProfileComponent,
     ResetComponent,
     ReversePipe,
+    CreateProfileComponent
   ],
   imports: [
     BrowserModule,

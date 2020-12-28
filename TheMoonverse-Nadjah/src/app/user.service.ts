@@ -12,15 +12,14 @@ export class UserService {
   private baseUrl= 'http://localhost:9090/api/v1'
   
   constructor(private http: HttpClient, private _authService: AuthService) { }
-  
   getLogin(email:string, password:string):Observable<any>{
     console.log("in service login " + email + password)
     this._authService.login();
     return this.http.post(`${this.baseUrl}/verify`, {email, password}) ;
   }
 
-  getUser(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${id}`);
+  getUser(userId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/users/${userId}`);
   }
 
   registerUser(user: Object): Observable<Object> {

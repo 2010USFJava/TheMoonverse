@@ -64,7 +64,7 @@ public class Profile {
 	public void setProfileId(int profileId) {
 		this.profileId = profileId;
 	}
-	public Users getUserId() {
+	public Users getUser() {
 		return user;
 	}
 
