@@ -21,8 +21,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.beans.Posts;
+import com.revature.beans.Users;
 import com.revature.exception.ResourceNotFoundException;
 import com.revature.repos.PostsRepository;
+import com.revature.repos.UsersRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -31,6 +33,9 @@ public class PostsController {
 
 	@Autowired
 	private PostsRepository postsRepo;
+	
+	@Autowired
+	private UsersRepository userRepo;
 	
 	@GetMapping("/posts")
 	public List<Posts> getAllPosts() {
@@ -50,7 +55,9 @@ public class PostsController {
 	
 	@PostMapping("/addpost")
 	public Posts createPost(@Valid @RequestBody Posts post) {
+		post.getUser().getUserId();
 		return postsRepo.save(post);
+		//Users user = userRepo.findById(post.getUserId().);
 	}
 	
 	@PutMapping("/posts/{post_id}")
@@ -59,7 +66,7 @@ public class PostsController {
 		Posts post = postsRepo.findById(postId)
 				.orElseThrow(() -> new ResourceNotFoundException("Post Not Found For This Id :: " + postId));
 
-		post.setUserId(postDetails.getUserId());
+		post.setUser(postDetails.getUser());
 		post.setCountLikes(postDetails.getCountLikes());
 		post.setPostText(postDetails.getPostText());
 		post.setPostDate(postDetails.getPostDate());

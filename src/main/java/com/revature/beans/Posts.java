@@ -61,11 +61,11 @@ public class Posts implements Serializable{
 	public void setPostId(int postId) {
 		this.postId = postId;
 	}
-	public Users getUserId() {
+	public Users getUser() {
 		return user;
 	}
 
-	public void setUserId(Users user) {
+	public void setUser(Users user) {
 		this.user = user;
 	}
 	public int getCountLikes() {
