@@ -14,7 +14,13 @@ export class ResetComponent implements OnInit {
   birthDate: string;
   password: string;
   user: User = new User();
+
+  //submitted = false;
+  
+  birth: Date;
+  email: string;
   public resetInvalid: boolean;
+
 
 
   constructor(private userService: UserService, private _route: ActivatedRoute, private _router: Router) { }

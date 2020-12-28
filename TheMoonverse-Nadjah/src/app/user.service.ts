@@ -12,6 +12,7 @@ export class UserService {
   private baseUrl= 'http://localhost:9090/api/v1'
   
   constructor(private http: HttpClient, private _authService: AuthService) { }
+  
   getLogin(email:string, password:string):Observable<any>{
     this._authService.login();
     return this.http.post(`${this.baseUrl}/verify`, {email, password}) ;
