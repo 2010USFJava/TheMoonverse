@@ -39,7 +39,8 @@
             <label class="sr-only" for="message">post</label>
             <textarea type="text" required  class="form-control" id="message" name="message" required
             [(ngModel)]="post.postText" rows="3" placeholder="What are you thinking?"></textarea>
-            
+            <label for="profilePicture"></label>
+                <input type="file" /> <br>
             <button class="btn btn-outline-success" type ="submit" (click)="onSubmit()">Blast Off!</button>
         </div>
     </div>

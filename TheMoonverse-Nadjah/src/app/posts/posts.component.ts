@@ -57,11 +57,9 @@ export class PostsComponent implements OnInit {
    .subscribe(post => {
      console.log(post)
      this.post = new Posts();
+     this.router.navigate(['feed']);
    });
   }
-  goBack(): void {
-    this.router.navigate(['/feed']);
-  } 
 
   
 }
