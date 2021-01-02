@@ -1,6 +1,7 @@
 # TheMoonVerse
 
-This project was generated with [Angular CLI](https://github.com/Java-Techie-jt/spring-security-angular-example) version 11.0.3.
+## Overview
+In this web application every Revature employee can connect to other employees, whether it be an associate, a trainer, or contracted employees. Each person has their own account, that comes with a unique username, Revature employee information. Within this network employees can access locations and information to help them with many different possibilities. Also it is being created to ease the transition as a Revature employee, whether it be as a trainer/associate, contracted employee/contractor, or staff member.
 
 ## Project Setup
 - Clone this repository to your machine.
