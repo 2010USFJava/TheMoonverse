@@ -1,0 +1,33 @@
+mat-card {
+    max-width: 600px;
+    margin: 2em auto;
+    text-align: center;
+    background-color: rgb(169, 212, 230);
+  }
+mat-form-field {
+  display: block;
+}
+
+header{background-color: rgb(126, 160, 212);
+  color: rgb(228, 233, 245);
+ margin-bottom: 5em;
+ 
+ padding-top: 2em;
+ padding-bottom: 2em;
+ box-shadow: 5px 0 3px rgb(189, 177, 177);
+
+}
+input {
+   background-color: rgb(231, 225, 225);
+   min-height: 3em;
+   border-width: 1px;
+   border-style: solid;
+   border-radius: 5px;
+   padding-left: 5px;
+ }
+ 
+h2 {
+ text-align: Center;
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ font-style: italic, bold;
+}

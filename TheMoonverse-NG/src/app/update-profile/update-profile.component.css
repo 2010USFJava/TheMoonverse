@@ -1,0 +1,24 @@
+#card {
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
+  }
+form {
+  display: block;
+}
+header, nav {background-color: rgb(208, 219, 235);
+  
+  color: rgb(61, 98, 177);
+  margin-bottom: 5em;
+  box-shadow: 2ex;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+input {
+    background-color: rgb(231, 225, 225);
+    min-height: 3em;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px;
+    padding-left: 5px;
+  }

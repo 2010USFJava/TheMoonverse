@@ -1,0 +1,25 @@
+
+
+<router-outlet></router-outlet>
+<app-nav-bar></app-nav-bar>
+
+<div class="card gedf-card">
+    <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">
+                  A MoonCoin for Your Thoughts ?</a>
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <div class="form-group"(ngSubmit) = "onSubmit()">
+            <label class="sr-only" for="message">post</label>
+            <textarea type="text" required  class="form-control" id="message" name="message" required
+            [(ngModel)]="post.postText" rows="3" placeholder="What are you thinking?"></textarea>
+            <label for="profilePicture"></label>
+                <input type="file" /> <br>
+            <button class="btn btn-success" type ="submit" (click)="onSubmit()">Blast Off!</button>
+        </div>
+    </div>
+    

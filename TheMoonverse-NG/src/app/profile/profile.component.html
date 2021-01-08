@@ -1,0 +1,32 @@
+
+
+<router-outlet></router-outlet>
+
+<div class="bg">
+  <app-nav-bar></app-nav-bar>
+  <div *ngIf="userExists" id="cards" class="card w-80 text-center" > <!--use reverse pipe shows newest post first-->
+    <div class="card-header">
+      <img class="card-img-top" alt="profile-image" src={{profile.profilePicture}} width="25%" height="25%">
+    
+    </div>
+  <div class="card-body">
+    <h3>{{firstName | titlecase}} {{lastName | titlecase}}</h3>
+    <br>
+    <p>About Me: {{profile.aboutMe}}</p>
+    <p>Age: {{profile.age}}</p>
+    <p>City: {{profile.city}}</p>
+    <p>Profession: {{profile.profession}}</p>
+    <p>Favorite Planet: {{profile.favoritePlanet}}</p>
+  
+  </div>
+  <div class="buttons">
+    <button type="submit" class="btn btn-success"   routerLink="/update-profile">Update Profile</button> 
+    <button type="submit" class="btn btn-success"   routerLink="/posts">Create a new post</button>
+  </div>
+</div>
+
+<div *ngIf="noProfile" class="card w-80 text-center" style="margin:2%;">
+  <button type="submit" class="btn btn-success" style="width:40%" style="margin:auto;" routerLink="/create-profile">Create Profile</button> 
+</div>
+</div> 
+ 

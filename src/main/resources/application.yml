@@ -4,11 +4,15 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://moonversedb.c3nwzqfeuwbd.us-east-2.rds.amazonaws.com:5432/postgres
-    username: moon
-    password: moonverse
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+  h2:
+    
+      console:        enabled: true        path: /h2 
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:      ddl-auto: create
     show-sql: true
 

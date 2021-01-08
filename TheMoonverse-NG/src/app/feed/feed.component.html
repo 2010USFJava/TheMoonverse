@@ -1,0 +1,32 @@
+
+<div class="bg">
+   <app-nav-bar></app-nav-bar>
+
+
+<h3>Global feed</h3>
+<router-outlet></router-outlet> <!--don't forget this..you'll regret it-->
+
+<div id="cards" class="card w-60 text-center"  
+*ngFor="let post of posts| reverse" style="margin:auto; margin-bottom: 10px;">
+    
+    <div class="card-header">
+        <!-- <a href="#" class="card-link"> user {{post.user.userId}}</a>
+        <a href="#" class="card-link"> post {{post.postId}}</a> -->
+    </div >
+    <img id= "pic" class="card-img-top"  src={{post.postMediaUrl}} alt="Card image cap" width="500" height="600">
+    <div class="card-body">
+      <p class="card-text">{{post.postText}}</p>
+      <footer class="blockquote-footer text-right"> {{post.user.firstName}} {{post.user.lastName}} 
+          <cite title="Source Title"> on {{post.postDate}}</cite>
+        </footer>
+    </div>
+    <div class="card-footer text-muted text-right">
+        <button type="button" data-toggle="button" id="like-button" (click)="like(post.countLikes)"
+            class="btn btn-outline-primary btn-sm" autocomplete="off" 
+                style="margin: 2%">Like
+        </button>{{post.countLikes}} likes
+        <!-- add  like fuinction to like buttons-->
+    </div>
+</div>
+</div>
+
